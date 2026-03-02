@@ -1,0 +1,453 @@
+{
+    "data": {
+
+        "basePath": "/",
+        
+        "site": {
+            "movieName": "El sendero de la sal",
+            "url": "elsenderodelasal.es",
+            "description": "Inspirada en hechos reales y basada en la novela best seller homónimo, El sendero de la sal narra la emotiva y esperanzadora historia de una pareja cuya conexión con la naturaleza les ayuda a superar la adversidad y a reencontrarse el uno con el otro.",
+            "image": "assets/images/DSC01289 Large.jpeg"
+        },
+
+
+        "config": {
+
+            "googleFontsURL": "https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
+            "fontBase": "Montserrat, sans-serif",
+            "fontDisplay": "Montserrat, sans-serif",
+            "colorBase": "#000000",
+            "colorAccent": "#f1c40f",
+            "colorBgPrimary": "#17617f",
+            "colorBgSecondary": "#0d4a63",
+            "scrollMode": "horizontal-snap"
+        },
+
+
+        "menu": {
+            "logo": "/assets/images/TITOL_sol.png",
+            "links": [
+
+                {
+                    "text": "Sinopsis",
+                    "url": "#intro"
+                },
+                
+                
+                {
+                    "text": "Trailer",
+                    "url": "#trailer"
+                },
+
+                
+                {
+                    "text": "Ficha",
+                    "url": "#movie-details"
+                },
+
+
+                {
+                    "text": "Galería",
+                    "url": "#galeria"
+                },  
+
+                {
+                    "text": "Críticas",
+                    "url": "#opiniones"
+                },
+                
+
+                {
+                    "text": "Prensa",
+                    "url": "https://drive.google.com/drive/folders/1Tu17mD6w1rOKw7YUhC3LsmSi8RDEGGfz",
+                    "target": "_blank"
+                }
+            ]
+        },
+
+
+        "sections": [
+
+            {
+                "type": "hero",
+                "variant": "parallax-smooth",
+                "data": {
+                    "id": "hero",
+                    "image": {
+                        "mobile": "",
+                        "desktop": ""
+                    },
+                    "video": "https://beka-media.b-cdn.net/landings-hero-videos/EL_SENDERO_DE_LA_SAL_TRL_LANDING",
+                    "heroLogo": "assets/images/hero_cast.png",
+                    "buttons": [
+                        {
+                            "text": "Ver Trailer", 
+                            "url": "#trailer", 
+                            "target": null 
+                            
+                        }
+
+                    ]
+                }
+            },
+            {
+                "type": "textCentered",
+                "variant": "autosplit",
+                "data": {
+                    "id": "intro",
+                    "title": "Sinopsis",
+                    "text": "Inspirada en hechos reales y basada en la novela best seller homónimo, El sendero de la sal narra la emotiva y esperanzadora historia de una pareja cuya conexión con la naturaleza les ayuda a superar la adversidad y a reencontrarse el uno con el otro. Tras perder su hogar y su medio de vida, deciden emprender impulsivamente un recorrido de más de 1.000 kilómetros a lo largo de la costa suroeste de Inglaterra, un viaje especialmente difícil tras el reciente diagnóstico del marido con una enfermedad neurodegenerativa."
+                }
+            },
+            
+           
+            {
+                "type":"parallax",
+                "data": {
+                    "id": "parallax",
+                    "image": "assets/images/DSC01289 Large.jpeg"
+
+                }
+            },
+
+            {
+                "type": "video",
+                "variant": "play-on-scroll",
+                "data": {
+                    "title": "Trailer",
+                    "id": "trailer",
+                    "youtubeId": "1PCkTL0q1lA",
+                    "poster": "/assets/images/ESDLS 1280x720 MINIATURA TRAILER_ORIGINAL.jpeg"
+                }
+            },            
+
+
+            {
+                "type": "details",
+                "variant": "stagger-list",
+                "data": {
+                    "id": "movie-details",
+                    "poster": "/assets/images/EL SENDERO DE LA SAL_ESP-100x70-V2-CAPAS copy Large.jpeg",
+                    "specs": [
+                        {
+                            "label": "Título Original",
+                            "value": "The Salt Path"
+                        },
+                        {
+                            "label": "Año",
+                            "value": "2024"
+                        },
+                        {
+                            "label": "Duración",
+                            "value": "115 min"
+                        },
+                        {
+                            "label": "Nacionalidad",
+                            "value": "Reino Unido"
+                        },
+                        {
+                            "label": "Género",
+                            "value": "Drama, Autobiográfico, Basado en novela"
+                        },
+                        {
+                            "label": "Dirección",
+                            "value": "Marianne Elliott"
+                        },
+                        {
+                            "label": "Guion",
+                            "value": "Rebecca Lenkiewicz, Marianne Elliott"
+                        },
+                        {
+                            "label": "Reparto",
+                            "value": "Gillian Anderson, Jason Isaacs, Denis Lill, Rebecca Ineson, Tucker St. Ivany"
+                        },
+                        {
+                            "label": "Director de Fotografía",
+                            "value": "Hélène Louvart"
+                        },
+                        {
+                            "label": "Música",
+                            "value": "Chris Roe"
+                        },
+                        {
+                            "label": "Montaje",
+                            "value": "Gareth C. Scales, Luca Zucchetti"
+                        },
+                        {
+                            "label": "Dirección de Arte",
+                            "value": "Philip Barber"
+                        },
+                        {
+                            "label": "Diseño de Producción",
+                            "value": "Christina Moore"
+                        },
+                        {
+                            "label": "Vestuario",
+                            "value": "Aena Witcombe"
+                        },
+                        {
+                            "label": "Sonido",
+                            "value": "ST DOLEY DIGITAL"
+                        },
+                        {
+                            "label": "V.O.",
+                            "value": "Inglés"
+                        },
+                        {
+                            "label": "Calificación",
+                            "value": "En trámite"
+                        }
+                    ]
+                }
+            },
+            {
+                "type":"parallax",
+                "data": {
+                    "id": "parallax",
+                    "image": "assets/images/DSC01586 Large.jpeg"
+
+                }
+            },
+            
+            
+            {
+                "type": "gallery",
+                "variant": "1",
+                "data": {
+                    "id": "galeria",
+                    "title": "Galería",
+                    "images": [
+                        {
+                            "image": "assets/images/DSC01289 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 1"
+                        },
+                        {
+                            "image": "assets/images/DSC01643 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 2"
+                        },
+                        {
+                            "image": "assets/images/DSC01714 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 3"
+                        },
+                        {
+                            "image": "assets/images/DSC01785 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 4"
+                        },
+                        {
+                            "image": "assets/images/DSC01829 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 5"
+                        },
+                        {
+                            "image": "assets/images/DSC02128 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 6"
+                        },
+                        {
+                            "image": "assets/images/DSC02133 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 7"
+                        },
+                        {
+                            "image": "assets/images/DSC02391 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 8"
+                        },
+                        {
+                            "image": "assets/images/DSC02422 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 9"
+                        },
+                        {
+                            "image": "assets/images/DSC02444 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 10"
+                        },
+                        {
+                            "image": "assets/images/DSC02935 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 11"
+                        },
+                        {
+                            "image": "assets/images/DSC03700 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 12"
+                        },
+                        {
+                            "image": "assets/images/DSC04003 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 13"
+                        },
+                        {
+                            "image": "assets/images/DSC04297 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 14"
+                        },
+                        {
+                            "image": "assets/images/DSC04747 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 15"
+                        },
+                        {
+                            "image": "assets/images/DSC05056 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 16"
+                        },
+                        {
+                            "image": "assets/images/DSC05120 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 17"
+                        },
+                        {
+                            "image": "assets/images/DSC05152 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 18"
+                        },
+                        {
+                            "image": "assets/images/DSC07607 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 19"
+                        },
+                        {
+                            "image": "assets/images/DSC09637 Large.jpeg",
+                            "title": "El sendero de la sal - Imagen 20"
+                        }
+                    ]
+                }
+            },
+         
+            {
+                "type":"parallax",
+                "data": {
+                    "id": "parallax",
+                    "image": "assets/images/DSC02133 Large.jpeg"
+
+                }
+            },
+            {
+                "type": "quotes",
+                "data": {
+                    "id": "opiniones", 
+                    "title": "Críticas", 
+                    "background": null ,
+                    "quotes": [
+                        {
+                            "image": null, 
+                            "text": "Está protagonizada por dos actores de lujo, Gillian Anderson y Jason Isaacs, ambos con interpretaciones encantadoras, emotivas y discretas.", 
+                            "authorName": "", 
+                            "authorMedia": "The Guardian", 
+                            "linkURL": "" 
+                        },
+                        {
+                            "image": null, 
+                            "text": "Una brillante historia de amor y resistencia en una situación que, de otro modo, podría doblegar a la mayoría de la gente.", 
+                            "authorName": "", 
+                            "authorMedia": "Deadline", 
+                            "linkURL": "" 
+                        },
+                        {
+                            "image": null, 
+                            "text": "Un drama inteligente y agridulce con momentos de humor y humanidad bien colocados.", 
+                            "authorName": "", 
+                            "authorMedia": "The Australian", 
+                            "linkURL": "" 
+                        },
+                        {
+                            "image": null, 
+                            "text": "Las interpretaciones son excelentes: ese sólido núcleo emocional permite a la película añadir luces y sombras en otros lugares (...). La película hace lo que hace con aplomo.", 
+                            "authorName": "", 
+                            "authorMedia": "The Financial Times", 
+                            "linkURL": "" 
+                        }
+                    ]
+                }
+            },
+                    
+            {
+                "type":"parallax",
+                "data": {
+                    "id": "parallax",
+                    "image": "assets/images/DSC02444 Large.jpeg"
+
+                }
+            },
+
+            {
+                "type": "logos",
+                "data": {
+                    "id": "logosDistribution", 
+                    "title": "Distribuido por", 
+                    "logos": [
+
+                        {
+                            "image": "/assets/images/Logotipo Adso — Medium_Baja.png",
+                            "title": "",
+                            "URL": "",
+                            "id": ""
+                        }
+            
+                    ]
+                    }
+            },
+            {
+                "type": "textAndImageOne",
+                "variant": "slide-parallax",
+                "data": {
+                    "id": "text-image-one-demo",
+                    "subtitle": "Ejemplo de",
+                    "title": "Text and Image One",
+                    "image": "assets/images/DSC01643 Large.jpeg",
+                    "text": "<p>Este es un ejemplo del componente Text and Image One. Incluye una imagen y texto lado a lado, perfecto para presentar información visual acompañada de contenido descriptivo.</p><p>El componente soporta diferentes variantes de animación con GSAP ScrollTrigger para crear efectos visuales atractivos.</p>"
+                }
+            },
+            {
+                "type": "textAndImageTwo",
+                "variant": "slide-parallax",
+                "data": {
+                    "id": "text-image-two-demo",
+                    "subtitle": "Ejemplo de",
+                    "title": "Text and Image Two",
+                    "image": "assets/images/DSC01714 Large.jpeg",
+                    "text": "<p>Este es un ejemplo del componente Text and Image Two. Similar al anterior pero con una estructura de layout diferente, ideal para variar el diseño de la página.</p><p>Permite mostrar contenido de forma alternada con imágenes para mantener el interés visual.</p>"
+                }
+            },
+            {
+                "type": "callToAction",
+                "variant": "slide-overlay",
+                "data": {
+                    "id": "call-to-action-demo",
+                    "subtitle": "Call to Action",
+                    "title": "Descubre más sobre la película",
+                    "imageMobile": "assets/images/DSC02128 Large.jpeg",
+                    "imageDesktop": "assets/images/DSC02133 Large.jpeg",
+                    "linkText": "Ver más información",
+                    "linkURL": "#intro"
+                }
+            },
+            
+            {
+                "type": "share",
+                "variant": "fade-icons",
+                "data": {
+                    "id": "share-demo",
+                    "title": "Comparte",
+                    "background": null
+                }
+            }
+            
+        ],
+
+        "footer": {
+            "logoMovie": "",
+            "copyright": {
+                "company": "ADSO Films",
+                "logo": "",
+                "link": "https://www.adsol.fr",
+                "texts": [
+                    "Copyright © ADSO Films",
+                    "Todos los derechos reservados"
+                ]
+            },
+            
+            "data": {
+                    "id": "followUs", 
+                    "title": "¡Síguenos!", 
+                    "twitter": "https://twitter.com/Adso_Films", 
+                    "instagram": "https://www.instagram.com/adso_films/", 
+                    "facebook": "https://www.facebook.com/adsofilms/", 
+                    "youtube": "https://www.youtube.com/@ADSOFILMS/featured",
+                    "email": "hola@adso.tv"
+                }
+            
+           
+        }
+        
+
+
+    }
+}

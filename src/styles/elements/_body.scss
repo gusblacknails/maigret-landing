@@ -1,0 +1,17 @@
+//
+// Body
+// ================================================================================
+
+
+body {
+
+  background-color: var(--color-bg-primary);
+
+  font-family: var(--font-base);
+  font-size: var(--fontSize-160);
+  line-height: var(--lineHeight-140);
+  color: var(--color-base);
+  
+  overflow-x: hidden;
+  width: 100%;
+}

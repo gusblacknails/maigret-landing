@@ -1,0 +1,106 @@
+//
+// Components / Details
+// ==========================================================================
+
+
+.c-details {
+  padding: var(--space-40) 0;
+  background-color: var(--color-bg-primary);
+  color: white;
+  border-top: 1px solid rgba(var(--color-black), 0.2);
+  border-bottom: 1px solid rgba(var(--color-black), 0.2);
+
+  @include breakpoint(md) {
+    padding: var(--space-80) 0;
+  }
+
+  @include breakpoint(lg) {
+    padding: var(--space-96) 0;
+  }
+
+  @include breakpoint(xxl) {
+    padding: var(--space-120) 0;
+  }
+}
+
+
+.c-details .u-container {
+  @include breakpoint(md) {
+    align-items: center;
+  }
+}
+
+
+.c-details__poster {
+  margin-bottom: var(--space-40);
+  width: 100%;
+
+  @include breakpoint(md) {
+    margin-bottom: 0;
+  }
+}
+
+
+.c-details__specs {
+
+  @include breakpoint(sm) {
+    column-count: 2;
+    column-gap: var(--space-40);
+  }
+
+  @include breakpoint(lg) {
+    transform: translateY( var(--space-40) );
+  }
+}
+
+
+.c-details__specs-item {
+  margin-bottom: var(--space-20);
+  break-inside: avoid-column;
+  page-break-inside: avoid;
+
+  @include breakpoint(sm) {
+    margin-bottom: var(--space-24);
+  }
+
+  @include breakpoint(lg) {
+    margin-bottom: var(--space-24);
+    
+    &:first-of-type {
+      margin-top: calc( -1 * var(--space-40) );
+    }
+    
+    // Reducir espacio antes de "Guion" (6to item) para evitar que se coma a "Reparto"
+    &:nth-child(6) {
+      margin-top: var(--space-8);
+    }
+  }
+}
+
+.c-details__specs-item#reparto {
+  @include breakpoint(lg) {
+    margin-top: 1em !important;
+  }
+}
+
+
+.c-details__label {
+  margin-bottom: var(--space-2);
+  @include typo-legend;
+}
+
+.c-details__value {
+  font-family: var(--font-base);
+  font-size: var(--fontSize-16);
+  color: white;
+  font-weight: normal;
+  line-height: var(--lineHeight-160);
+  
+  @include breakpoint(md) {
+    font-size: var(--fontSize-18);
+  }
+  
+  @include breakpoint(lg) {
+    font-size: var(--fontSize-20);
+  }
+}

@@ -1,0 +1,64 @@
+{% macro component(localData, siteData, variant) %} {% set variant = variant | default('default') %} {% set variantClass = "c-custom--" + variant %}
+<div class="container c-custom {{ variantClass }}" data-gsap-variant="{{ variant }}">
+    <h1 class="c-logos__title">Prensa</h1>
+
+    <p style="text-align:center"> Click <a style="text-decoration: none; color: white;" href="https://drive.google.com/drive/folders/1F13uV8QSvamGnsDNZmu7Ej9r23_QGFIf?usp=drive_link" target="_blank"><strong>aquí</strong></a> para descarga.</p>
+
+
+</div>
+<style>
+    #fechas {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        /* background: #fff; */
+        padding: 20px;
+        
+        /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    /* h1, h2 {
+        color: #333;
+    } */
+    .highlight {
+        color: #d9534f;
+        font-weight: bold;
+        margin-top: 0.5rem;
+    }
+    
+    .event {
+        margin-bottom: 20px;
+    }
+    .city-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .city-list li {
+        margin-bottom: 10px;
+        display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    }
+    .button {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #0275d8;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    .button.sold-out {
+        background-color: #d9534f;
+    }
+    .button.upcoming {
+        background-color: #f0ad4e;
+    }
+</style>
+{% endmacro %}

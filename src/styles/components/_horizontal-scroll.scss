@@ -1,0 +1,198 @@
+//
+// Components / Horizontal Scroll
+// ==========================================================================
+
+// Body and HTML styles when horizontal scroll is active
+// ScrollTrigger needs scroll to exist, but we hide it visually
+body.horizontal-scroll-active {
+  overflow-x: hidden;
+  overflow-y: auto; // Allow scroll for ScrollTrigger to detect
+  width: 100vw;
+  height: 100vh;
+  
+  // Background track for horizontal scrollbar at bottom
+  &::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    pointer-events: none;
+  }
+  
+  // Hide vertical scrollbar visually while keeping scroll functionality
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+// Ensure html also allows scroll for ScrollTrigger
+html.horizontal-scroll-active {
+  overflow-x: hidden;
+  overflow-y: auto; // Allow scroll for ScrollTrigger to detect
+  width: 100vw;
+  height: 100vh;
+  
+  // Hide scrollbar visually
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Horizontal scrollbar indicator
+.horizontal-scroll-indicator {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  height: 8px !important;
+  background: rgba(23, 97, 127, 0.8) !important;
+  z-index: 10000 !important;
+  pointer-events: none !important;
+  transition: width 0.1s ease, left 0.1s ease !important;
+  border-radius: 4px 4px 0 0 !important;
+  min-width: 50px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+// Smooth wrapper for ScrollSmoother
+#smooth-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// Horizontal scroll wrapper
+.horizontal-scroll-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  min-height: 100vh;
+  height: auto;
+  gap: 0; // Default no gap
+
+  // Each section takes full viewport width
+  > section,
+  > *[id] {
+    flex-shrink: 0;
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+  }
+}
+
+// Ensure sections are properly sized
+body.horizontal-scroll-active {
+  main.c-main {
+    display: flex;
+    flex-direction: row;
+    opacity: 0; // Hide until positioned to prevent flash
+    will-change: transform;
+  }
+  
+  // Show after JS initializes position
+  main.c-main.horizontal-scroll-wrapper {
+    transition: opacity 0.1s ease-out;
+  }
+  
+  // All direct children sections
+  section[id],
+  .c-hero,
+  .c-intro,
+  .c-gallery-section,
+  .c-quotes,
+  .c-video,
+  .c-details,
+  .c-call-to-action,
+  .c-logos,
+  .c-share,
+  .c-follow-us,
+  .c-text-and-image-one,
+  .c-text-and-image-two,
+  .c-image,
+  .c-ticketing,
+  .c-sorteo,
+  .c-custom {
+    flex-shrink: 0;
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    
+    // Allow internal scrolling if content overflows
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  // Gallery section margins on desktop
+  @include breakpoint(md) {
+    .c-gallery-section {
+      width: 100vw !important;
+      
+      // Apply spacing to wrapper to avoid scrollbar calculation issues
+      .c-gallery-section__wrapper,
+      .c-gallery-section__wrapper--2 {
+        margin-left: var(--space-40) !important;
+        margin-right: var(--space-40) !important;
+        width: calc(100% - 2 * var(--space-40)) !important;
+      }
+      
+      .c-gallery-section__thumbnails {
+        margin-left: var(--space-40) !important;
+        margin-right: var(--space-40) !important;
+        width: calc(100% - 2 * var(--space-40)) !important;
+      }
+    }
+  }
+  
+  // Parallax components should not take space - they're just image sources
+  .c-parallax {
+    display: none !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  // Add gap between components to show parallax images behind
+  .c-main.horizontal-scroll-wrapper {
+    gap: 100px; // Space between components to reveal parallax images
+  }
+}
+
+// Menu adjustments for horizontal scroll
+// Menu should always be sticky/fixed in horizontal mode
+body.horizontal-scroll-active {
+  .c-menu {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    background: var(--color-bg-primary) !important;
+    
+    // Remove transparency effects in horizontal mode
+    &.--page-at-top {
+      background: var(--color-bg-primary) !important;
+      opacity: 1 !important;
+    }
+  }
+}
+
+// Footer adjustments
+body.horizontal-scroll-active {
+  .c-footer {
+    flex-shrink: 0;
+    width: 100vw;
+  }
+}
+

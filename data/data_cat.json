@@ -1,0 +1,398 @@
+{
+  "data": {
+    "basePath": "/",
+    
+    "site": {
+      "movieName": "El camí de la sal",
+      "url": "elsenderodelasal.es",
+      "description": "Inspirada en fets reals i basada en la novel·la best seller homònima, El sender de la sal narra l'emotiva i esperançadora història d'una parella la connexió de la qual amb la natura els ajuda a superar l'adversitat i a retrobar-se l'un amb l'altre.",
+      "image": "/assets/images/DSC01289 Large.jpeg"
+    },
+
+
+    "config": {
+      "googleFontsURL": "https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
+      "fontBase": "Montserrat, sans-serif",
+      "fontDisplay": "Montserrat, sans-serif",
+      "colorBase": "#000000",
+      "colorAccent": "#f1c40f",
+      "colorBgPrimary": "#17617f",
+      "colorBgSecondary": "#0d4a63"
+    },
+
+
+    "menu": {
+      "logo": "/assets/images/TITOL_sol_CAT.png",
+      "links": [
+        {
+          "text": "Sinopsi",
+          "url": "#intro"
+        },
+        {
+          "text": "Tràiler",
+          "url": "#trailer"
+        },
+        {
+          "text": "Fitxa",
+          "url": "#movie-details"
+        },
+        {
+          "text": "Galeria",
+          "url": "#galeria"
+        },
+        {
+          "text": "Crítiques",
+          "url": "#opiniones"
+        },
+        {
+          "text": "Premsa",
+          "url": "https://drive.google.com/drive/folders/1Tu17mD6w1rOKw7YUhC3LsmSi8RDEGGfz",
+          "target": "_blank"
+        }
+      ]
+    },
+
+
+    "sections": [
+      {
+        "type": "hero",
+        "data": {
+          "id": "hero",
+          "image": {
+            "mobile": "",
+            "desktop": ""
+          },
+          "video": "https://beka-media.b-cdn.net/landings-hero-videos/EL_SENDERO_DE_LA_SAL_TRL_LANDING",
+          "heroLogo": "/assets/images/hero_cat.png",
+          "buttons": [
+            {
+              "text": "Veure Tràiler",
+              "url": "#trailer",
+              "target": null
+            }
+          ]
+        }
+      },
+      {
+        "type": "textCentered",
+        "data": {
+          "id": "intro",
+          "title": "Sinopsi",
+          "text": "Inspirada en fets reals i basada en la novel·la best seller homònima, El sender de la sal narra l'emotiva i esperançadora història d'una parella la connexió de la qual amb la natura els ajuda a superar l'adversitat i a retrobar-se l'un amb l'altre. Després de perdre la seva llar i el seu mitjà de vida, decideixen emprendre impulsivament un recorregut de més de 1.000 quilòmetres al llarg de la costa sud-oest d'Anglaterra, un viatge especialment difícil després del recent diagnòstic del marit amb una malaltia neurodegenerativa."
+        }
+      },
+      {
+        "type": "parallax",
+        "data": {
+          "id": "parallax",
+          "image": "/assets/images/DSC01289 Large.jpeg"
+        }
+      },
+      {
+        "type": "video",
+        "data": {
+          "title": "Tràiler",
+          "id": "trailer",
+          "youtubeId": "1PCkTL0q1lA",
+          "poster": "/assets/images/ESDLS 1280x720 MINIATURA TRAILER_ORIGINAL.jpeg"
+        }
+      },
+      {
+        "type": "details",
+        "data": {
+          "id": "movie-details",
+          "poster": "/assets/images/EL SENDERO DE LA SAL_ESP-100x70-V2-CAPAS copy Large.jpeg",
+          "specs": [
+            {
+              "label": "Títol Original",
+              "value": "The Salt Path"
+            },
+            {
+              "label": "Any",
+              "value": "2024"
+            },
+            {
+              "label": "Durada",
+              "value": "115 min"
+            },
+            {
+              "label": "Nacionalitat",
+              "value": "Regne Unit"
+            },
+            {
+              "label": "Gènere",
+              "value": "Drama, Autobiogràfic, Basat en novel·la"
+            },
+            {
+              "label": "Direcció",
+              "value": "Marianne Elliott"
+            },
+            {
+              "label": "Guió",
+              "value": "Rebecca Lenkiewicz, Marianne Elliott"
+            },
+            {
+              "label": "Repartiment",
+              "value": "Gillian Anderson, Jason Isaacs, Denis Lill, Rebecca Ineson, Tucker St. Ivany"
+            },
+            {
+              "label": "Director de Fotografia",
+              "value": "Hélène Louvart"
+            },
+            {
+              "label": "Música",
+              "value": "Chris Roe"
+            },
+            {
+              "label": "Muntatge",
+              "value": "Gareth C. Scales, Luca Zucchetti"
+            },
+            {
+              "label": "Direcció d'Art",
+              "value": "Philip Barber"
+            },
+            {
+              "label": "Disseny de Producció",
+              "value": "Christina Moore"
+            },
+            {
+              "label": "Vestuari",
+              "value": "Aena Witcombe"
+            },
+
+            {
+              "label": "So",
+              "value": "ST DOLEY DIGITAL"
+            },
+            {
+              "label": "V.O.",
+              "value": "Anglès"
+            },
+            {
+              "label": "Qualificació",
+              "value": "En tràmit"
+            }
+          ]
+        }
+      },
+      {
+        "type": "parallax",
+        "data": {
+          "id": "parallax",
+          "image": "/assets/images/DSC01586 Large.jpeg"
+        }
+      },
+      {
+        "type": "gallery",
+        "data": {
+          "id": "galeria",
+          "title": "Galeria",
+          "images": [
+            {
+              "image": "/assets/images/DSC01289 Large.jpeg",
+              "title": "El camí de la sal - Imatge 1"
+            },
+            {
+              "image": "/assets/images/DSC01586 Large.jpeg",
+              "title": "El camí de la sal - Imatge 2"
+            },
+            {
+              "image": "/assets/images/DSC01643 Large.jpeg",
+              "title": "El camí de la sal - Imatge 3"
+            },
+            {
+              "image": "/assets/images/DSC01694 Large.jpeg",
+              "title": "El camí de la sal - Imatge 4"
+            },
+            {
+              "image": "/assets/images/DSC01714 Large.jpeg",
+              "title": "El camí de la sal - Imatge 5"
+            },
+            {
+              "image": "/assets/images/DSC01759 Large.jpeg",
+              "title": "El camí de la sal - Imatge 6"
+            },
+            {
+              "image": "/assets/images/DSC01785 Large.jpeg",
+              "title": "El camí de la sal - Imatge 7"
+            },
+            {
+              "image": "/assets/images/DSC01829 Large.jpeg",
+              "title": "El camí de la sal - Imatge 8"
+            },
+            {
+              "image": "/assets/images/DSC01851 Large.jpeg",
+              "title": "El camí de la sal - Imatge 9"
+            },
+            {
+              "image": "/assets/images/DSC01874 Large.jpeg",
+              "title": "El camí de la sal - Imatge 10"
+            },
+            {
+              "image": "/assets/images/DSC02029 Large.jpeg",
+              "title": "El camí de la sal - Imatge 11"
+            },
+            {
+              "image": "/assets/images/DSC02128 Large.jpeg",
+              "title": "El camí de la sal - Imatge 12"
+            },
+            {
+              "image": "/assets/images/DSC02133 Large.jpeg",
+              "title": "El camí de la sal - Imatge 13"
+            },
+            {
+              "image": "/assets/images/DSC02391 Large.jpeg",
+              "title": "El camí de la sal - Imatge 14"
+            },
+            {
+              "image": "/assets/images/DSC02422 Large.jpeg",
+              "title": "El camí de la sal - Imatge 15"
+            },
+            {
+              "image": "/assets/images/DSC02444 Large.jpeg",
+              "title": "El camí de la sal - Imatge 16"
+            },
+            {
+              "image": "/assets/images/DSC02935 Large.jpeg",
+              "title": "El camí de la sal - Imatge 17"
+            },
+            {
+              "image": "/assets/images/DSC03700 Large.jpeg",
+              "title": "El camí de la sal - Imatge 18"
+            },
+            {
+              "image": "/assets/images/DSC04003 Large.jpeg",
+              "title": "El camí de la sal - Imatge 19"
+            },
+            {
+              "image": "/assets/images/DSC04297 Large.jpeg",
+              "title": "El camí de la sal - Imatge 20"
+            },
+            {
+              "image": "/assets/images/DSC04408 Large.jpeg",
+              "title": "El camí de la sal - Imatge 21"
+            },
+            {
+              "image": "/assets/images/DSC04747 Large.jpeg",
+              "title": "El camí de la sal - Imatge 22"
+            },
+            {
+              "image": "/assets/images/DSC05056 Large.jpeg",
+              "title": "El camí de la sal - Imatge 23"
+            },
+            {
+              "image": "/assets/images/DSC05120 Large.jpeg",
+              "title": "El camí de la sal - Imatge 24"
+            },
+            {
+              "image": "/assets/images/DSC05152 Large.jpeg",
+              "title": "El camí de la sal - Imatge 25"
+            },
+            {
+              "image": "/assets/images/DSC07607 Large.jpeg",
+              "title": "El camí de la sal - Imatge 26"
+            },
+            {
+              "image": "/assets/images/DSC07933 Large.jpeg",
+              "title": "El camí de la sal - Imatge 27"
+            },
+            {
+              "image": "/assets/images/DSC09637 Large.jpeg",
+              "title": "El camí de la sal - Imatge 28"
+            }
+          ]
+        }
+      },
+      {
+        "type": "parallax",
+        "data": {
+          "id": "parallax",
+          "image": "/assets/images/DSC02133 Large.jpeg"
+        }
+      },
+      {
+        "type": "quotes",
+        "data": {
+          "id": "opiniones",
+          "title": "Crítiques",
+          "background": null,
+          "quotes": [
+            {
+              "image": null,
+              "text": "Està protagonitzada per dos actors de luxe, Gillian Anderson i Jason Isaacs, ambdós amb interpretacions encantadores, emotives i discretes.",
+              "authorName": "",
+              "authorMedia": "The Guardian",
+              "linkURL": ""
+            },
+            {
+              "image": null,
+              "text": "Una brillant història d'amor i resistència en una situació que, d'una altra manera, podria doblegar la majoria de la gent.",
+              "authorName": "",
+              "authorMedia": "Deadline",
+              "linkURL": ""
+            },
+            {
+              "image": null,
+              "text": "Un drama intel·ligent i agredolç amb moments d'humor i humanitat ben col·locats.",
+              "authorName": "",
+              "authorMedia": "The Australian",
+              "linkURL": ""
+            },
+            {
+              "image": null,
+              "text": "Les interpretacions són excel·lents: aquest nucli emocional sòlid permet a la pel·lícula afegir llums i ombres en altres llocs (...). La pel·lícula fa el que fa amb aplom.",
+              "authorName": "",
+              "authorMedia": "The Financial Times",
+              "linkURL": ""
+            }
+          ]
+        }
+      },
+      {
+        "type": "parallax",
+        "data": {
+          "id": "parallax",
+          "image": "/assets/images/DSC02444 Large.jpeg"
+        }
+      },
+      {
+        "type": "logos",
+        "data": {
+          "id": "logosDistribution",
+          "title": "Distribuït per",
+          "logos": [
+            {
+              "image": "/assets/images/Logo_MOVIE_FILMS_BLANC_Small.png",
+              "title": "",
+              "URL": "",
+              "id": ""
+            }
+          ]
+        }
+      }
+    ],
+
+    "footer": {
+      "logoMovie": "",
+      "copyright": {
+        "company": "ADSO Films",
+        "logo": "",
+        "link": "https://www.adsol.fr",
+        "texts": [
+          "Copyright © ADSO Films",
+          "Tots els drets reservats"
+        ]
+      },
+      "data": {
+        "id": "followUs",
+        "title": "Segueix-nos!",
+        "background": "/assets/images/share-background.jpg",
+        "twitter": "https://twitter.com/Adso_Films",
+        "instagram": "https://www.instagram.com/adso_films/",
+        "facebook": "https://www.facebook.com/adsofilms/",
+        "youtube": "https://www.youtube.com/@ADSOFILMS/featured",
+        "email": "hola@adso.tv"
+      }
+    }
+  }
+}
