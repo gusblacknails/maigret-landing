@@ -6,23 +6,46 @@
 .c-intro {
   @include section-margins;
   text-align: center;
+  position: relative;
+
+  // Overlay oscuro fijo para que la sinopsis mantenga la misma oscuridad (no se aclare al cargar)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .u-container,
+  .c-intro__title,
+  .c-intro__text-wrapper {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 
 .c-intro__title {
   margin-bottom: var(--space-24);
-  font-size: clamp(1.75rem, 4vw + 1rem, 3rem);
+  font-size: clamp(1.25rem, 1.8vw + 0.75rem, 2.5rem);
+
+  @media (max-width: 767px) {
+    font-size: 1.125rem;
+  }
 
   @include typo-legend;
 }
 
 
 .c-intro__text {
-  font-family: var(--font-display);
-  font-size: clamp(1.125rem, 2vw + 1rem, 2rem);
-  line-height: clamp(1.5, 1.6, 1.8);
-  
-  // Prevent bad line breaks - only break if absolutely necessary
+  font-family: var(--font-base);
+  font-size: clamp(1.25rem, 1.5vw + 0.9rem, 2.25rem);
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-align: center;
+
   word-wrap: normal;
   overflow-wrap: normal;
   word-break: normal;
@@ -30,13 +53,11 @@
   -webkit-hyphens: none;
   -moz-hyphens: none;
   
-  // Font size will be calculated dynamically by JavaScript (only in vertical mode)
-  // This is just a fallback
   @include breakpoint(md) {
-    font-size: clamp(1.25rem, 2vw + 0.75rem, 1.625rem);
-    line-height: 1.75;
+    font-size: clamp(1.375rem, 1.35vw + 0.85rem, 1.875rem);
+    line-height: 1.5;
     text-align: center !important;
-    max-width: 75ch !important; // Optimal reading width (reduced from 85ch for better line breaks)
+    max-width: 75ch !important;
     margin-left: auto !important;
     margin-right: auto !important;
     padding: 0 1rem;
@@ -45,8 +66,8 @@
   }
 
   @include breakpoint(xl) {
-    font-size: clamp(1.375rem, 2.5vw + 0.75rem, 1.875rem);
-    line-height: 1.8;
+    font-size: clamp(1.5rem, 1.4vw + 0.9rem, 2rem);
+    line-height: 1.5;
     max-width: 80ch;
   }
   
@@ -89,54 +110,25 @@
   }
 }
 
-// When in horizontal scroll mode and text is scrollable
+// En modo horizontal: wrapper sin scroll interno, max-height 100vh
 body.horizontal-scroll-active .c-intro__text-wrapper {
-  max-height: 70vh;
-  overflow-y: auto;
+  max-height: 100vh;
+  overflow-y: visible;
   overflow-x: hidden;
   padding-right: 1rem;
-  
+
   @include breakpoint(md) {
     padding-right: 2rem;
     padding-left: 2rem;
-    max-height: 65vh; // Slightly less on desktop for better balance
   }
-  
-  // Smooth scrolling
-  scroll-behavior: smooth;
-  
-  // Custom scrollbar styling
-  &::-webkit-scrollbar {
-    width: 6px;
-    
-    @include breakpoint(md) {
-      width: 8px;
-    }
-  }
-  
-  &::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-    
-    &:hover {
-      background: rgba(255, 255, 255, 0.5);
-    }
-  }
-  
-  // Better formatting in desktop
+
   @include breakpoint(md) {
-    // Ensure text inside is properly formatted
     .c-intro__text {
       text-align: center !important;
       max-width: 75ch !important;
       margin-left: auto !important;
       margin-right: auto !important;
-      
+
       p {
         text-align: center !important;
         overflow-wrap: normal !important;

@@ -9,7 +9,9 @@ body.horizontal-scroll-active {
   overflow-y: auto; // Allow scroll for ScrollTrigger to detect
   width: 100vw;
   height: 100vh;
-  
+  // Reservar espacio de scrollbar para que el viewport no cambie al cargar el video (las flechas no se desplazan)
+  scrollbar-gutter: stable;
+
   // Background track for horizontal scrollbar at bottom
   &::after {
     content: '';
@@ -38,7 +40,8 @@ html.horizontal-scroll-active {
   overflow-y: auto; // Allow scroll for ScrollTrigger to detect
   width: 100vw;
   height: 100vh;
-  
+  scrollbar-gutter: stable;
+
   // Hide scrollbar visually
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -63,6 +66,101 @@ html.horizontal-scroll-active {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+}
+
+// Capa que contiene la flecha: primera en el body, siempre encima del hero/video y del resto
+#horizontal-scroll-ui-layer {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}
+
+// Mismo margen para ambas flechas (izq/der)
+$horizontal-scroll-arrow-inset: 24px;
+
+// Flecha siguiente sección (esquina inferior derecha, siempre visible sobre todo)
+.horizontal-scroll-next-arrow {
+  position: fixed !important;
+  bottom: #{$horizontal-scroll-arrow-inset} !important;
+  right: #{$horizontal-scroll-arrow-inset} !important;
+  z-index: 99999 !important;
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-accent) !important;
+  color: var(--color-bg-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: auto !important;
+  visibility: visible !important;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-base);
+    outline-offset: 2px;
+  }
+}
+
+// Flecha anterior (esquina inferior izquierda)
+.horizontal-scroll-prev-arrow {
+  position: fixed !important;
+  bottom: #{$horizontal-scroll-arrow-inset} !important;
+  left: #{$horizontal-scroll-arrow-inset} !important;
+  z-index: 99999 !important;
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-accent) !important;
+  color: var(--color-bg-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: auto !important;
+  visibility: visible !important;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-base);
+    outline-offset: 2px;
+  }
 }
 
 // Smooth wrapper for ScrollSmoother
@@ -117,6 +215,7 @@ body.horizontal-scroll-active {
   .c-details,
   .c-call-to-action,
   .c-logos,
+  .c-logos-and-share,
   .c-share,
   .c-follow-us,
   .c-text-and-image-one,
@@ -168,6 +267,34 @@ body.horizontal-scroll-active {
   // Add gap between components to show parallax images behind
   .c-main.horizontal-scroll-wrapper {
     gap: 100px; // Space between components to reveal parallax images
+  }
+
+  // Centrado vertical de ficha, tráiler y críticas en el viewport
+  .c-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .c-video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .c-quotes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .c-logos-and-share {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 

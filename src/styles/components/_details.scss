@@ -4,9 +4,9 @@
 
 
 .c-details {
-  padding: var(--space-40) 0;
+  padding: calc(var(--space-64) + var(--space-16)) var(--space-16) var(--space-40);
   background-color: var(--color-bg-primary);
-  color: white;
+  color: var(--color-base);
   border-top: 1px solid rgba(var(--color-black), 0.2);
   border-bottom: 1px solid rgba(var(--color-black), 0.2);
 
@@ -25,26 +25,42 @@
 
 
 .c-details .u-container {
+  text-align: center;
+
   @include breakpoint(md) {
     align-items: center;
+    text-align: left;
   }
 }
 
 
 .c-details__poster {
-  margin-bottom: var(--space-40);
+  margin-bottom: var(--space-16);
   width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 
   @include breakpoint(md) {
     margin-bottom: 0;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
 
 .c-details__specs {
+  column-count: 2;
+  column-gap: var(--space-16);
 
   @include breakpoint(sm) {
-    column-count: 2;
+    column-gap: var(--space-24);
+  }
+
+  @include breakpoint(md) {
     column-gap: var(--space-40);
   }
 
@@ -55,12 +71,16 @@
 
 
 .c-details__specs-item {
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-8);
   break-inside: avoid-column;
   page-break-inside: avoid;
 
   @include breakpoint(sm) {
-    margin-bottom: var(--space-24);
+    margin-bottom: var(--space-12);
+  }
+
+  @include breakpoint(md) {
+    margin-bottom: var(--space-20);
   }
 
   @include breakpoint(lg) {
@@ -70,7 +90,6 @@
       margin-top: calc( -1 * var(--space-40) );
     }
     
-    // Reducir espacio antes de "Guion" (6to item) para evitar que se coma a "Reparto"
     &:nth-child(6) {
       margin-top: var(--space-8);
     }
@@ -86,20 +105,34 @@
 
 .c-details__label {
   margin-bottom: var(--space-2);
-  @include typo-legend;
+  font-family: var(--font-base);
+  font-size: var(--fontSize-12);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  text-align: center;
+
+  @include breakpoint(md) {
+    font-size: var(--fontSize-14);
+    letter-spacing: 0.1rem;
+    text-align: left;
+  }
 }
 
 .c-details__value {
   font-family: var(--font-base);
-  font-size: var(--fontSize-16);
-  color: white;
+  font-size: large;
+  color: var(--color-base);
   font-weight: normal;
-  line-height: var(--lineHeight-160);
-  
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  text-align: center;
+
   @include breakpoint(md) {
     font-size: var(--fontSize-18);
+    text-align: left;
   }
-  
+
   @include breakpoint(lg) {
     font-size: var(--fontSize-20);
   }

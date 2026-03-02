@@ -8,6 +8,24 @@
   color: white;
   box-sizing: border-box;
 
+  // Overlay oscuro fijo para mantener la oscuridad (no se aclare al cargar)
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .u-container,
+  .c-gallery-section__wrapper,
+  .c-gallery-section__wrapper--2,
+  .c-gallery-section__thumbnails {
+    position: relative;
+    z-index: 1;
+  }
+
   @include breakpoint(md) {
     margin-top: var(--space-40) !important;
     margin-bottom: var(--space-40) !important;

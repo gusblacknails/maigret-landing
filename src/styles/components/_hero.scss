@@ -122,7 +122,7 @@
   z-index: 2;
 
   @include breakpoint(md) {
-    justify-content: flex-end;
+    // justify-content: flex-end;
     padding-top: var(--space-80);
   }
 
@@ -147,13 +147,13 @@
   }
 
   @include breakpoint(md) {
-    max-width: 600px;
-    transform: scale(0.6);
+    // max-width: 600px;
+    // transform: scale(0.6);
   }
 
   @include breakpoint(lg) {
     max-width: 700px;
-    transform: scale(0.7);
+    // transform: scale(0.7);
   }
 }
 

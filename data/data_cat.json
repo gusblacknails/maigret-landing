@@ -3,26 +3,27 @@
     "basePath": "/",
     
     "site": {
-      "movieName": "El camí de la sal",
-      "url": "elsenderodelasal.es",
-      "description": "Inspirada en fets reals i basada en la novel·la best seller homònima, El sender de la sal narra l'emotiva i esperançadora història d'una parella la connexió de la qual amb la natura els ajuda a superar l'adversitat i a retrobar-se l'un amb l'altre.",
-      "image": "/assets/images/DSC01289 Large.jpeg"
+      "movieName": "Maigret and the Dead Lover",
+      "url": "maigretandthedeadlover.com",
+      "description": "L'icònic comissari Jules Maigret torna a la gran pantalla en aquesta adaptació de la novel·la de Georges Simenon. Denis Podalydès interpreta el llegendari inspector en un thriller policíac que investiga l'assassinat d'un antic ambaixador francès.",
+      "image": "/assets/images/Maigret_Poster Esp_LR Large.jpeg"
     },
 
 
     "config": {
-      "googleFontsURL": "https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
-      "fontBase": "Montserrat, sans-serif",
-      "fontDisplay": "Montserrat, sans-serif",
-      "colorBase": "#000000",
-      "colorAccent": "#f1c40f",
-      "colorBgPrimary": "#17617f",
-      "colorBgSecondary": "#0d4a63"
+      "googleFontsURL": "",
+      "fontBase": "Aroxima, sans-serif",
+      "fontDisplay": "Aroxima, sans-serif",
+      "colorBase": "#353230",
+      "colorAccent": "#CC222A",
+      "colorBgPrimary": "#F2EDE8",
+      "colorBgSecondary": "#E8E2DC",
+      "scrollMode": "horizontal-snap"
     },
 
 
     "menu": {
-      "logo": "/assets/images/TITOL_sol_CAT.png",
+      "logo": "/assets/images/maigret-logo-cat.png",
       "links": [
         {
           "text": "Sinopsi",
@@ -46,7 +47,7 @@
         },
         {
           "text": "Premsa",
-          "url": "https://drive.google.com/drive/folders/1Tu17mD6w1rOKw7YUhC3LsmSi8RDEGGfz",
+          "url": "https://drive.google.com/drive/folders/1zBe9b2-yuP-aq_8vXvYx9Cd-Cp3Equ3I",
           "target": "_blank"
         }
       ]
@@ -62,8 +63,8 @@
             "mobile": "",
             "desktop": ""
           },
-          "video": "https://beka-media.b-cdn.net/landings-hero-videos/EL_SENDERO_DE_LA_SAL_TRL_LANDING",
-          "heroLogo": "/assets/images/hero_cat.png",
+          "video": "",
+          "heroLogo": "/assets/images/maigret-hero-logo.png",
           "buttons": [
             {
               "text": "Veure Tràiler",
@@ -78,14 +79,14 @@
         "data": {
           "id": "intro",
           "title": "Sinopsi",
-          "text": "Inspirada en fets reals i basada en la novel·la best seller homònima, El sender de la sal narra l'emotiva i esperançadora història d'una parella la connexió de la qual amb la natura els ajuda a superar l'adversitat i a retrobar-se l'un amb l'altre. Després de perdre la seva llar i el seu mitjà de vida, decideixen emprendre impulsivament un recorregut de més de 1.000 quilòmetres al llarg de la costa sud-oest d'Anglaterra, un viatge especialment difícil després del recent diagnòstic del marit amb una malaltia neurodegenerativa."
+          "text": "El comissari Maigret, convocat urgentment al Quai d'Orsay, hi acudeix amb el comandant Janvier. Troben la Mademoiselle Larrieu en estat de xoc. Aquell mateix matí, havia descobert el cos acribillat a trets del Monsieur Berthier-Lagès, un reconegut exambaixador al qual havia servit durant 46 anys. A l'apartament de la víctima, Maigret i Janvier s'apoderen de milers de cartes. El diplomàtic mantenia correspondència romàntica durant cinquanta anys amb la princesa de Vuynes, el marit de la qual, per una estranya coincidència, acaba de morir. En enfrontar-se a membres de ambdues famílies i al sospitós silenci de Mademoiselle Larrieu, Maigret es troba una sorpresa darrere l'altra..."
         }
       },
       {
         "type": "parallax",
         "data": {
           "id": "parallax",
-          "image": "/assets/images/DSC01289 Large.jpeg"
+          "image": "/assets/images/_MAI0490 Large.jpeg"
         }
       },
       {
@@ -93,84 +94,55 @@
         "data": {
           "title": "Tràiler",
           "id": "trailer",
-          "youtubeId": "1PCkTL0q1lA",
-          "poster": "/assets/images/ESDLS 1280x720 MINIATURA TRAILER_ORIGINAL.jpeg"
+          "youtubeId": "",
+          "poster": "/assets/images/maigret-trailer-poster.jpg"
         }
       },
       {
         "type": "details",
         "data": {
           "id": "movie-details",
-          "poster": "/assets/images/EL SENDERO DE LA SAL_ESP-100x70-V2-CAPAS copy Large.jpeg",
+          "poster": "/assets/images/Maigret_Poster Esp_LR Large.jpeg",
           "specs": [
             {
               "label": "Títol Original",
-              "value": "The Salt Path"
+              "value": "Maigret and the Dead Lover"
             },
             {
               "label": "Any",
-              "value": "2024"
+              "value": "2025"
             },
             {
               "label": "Durada",
-              "value": "115 min"
+              "value": "Per confirmar"
             },
             {
               "label": "Nacionalitat",
-              "value": "Regne Unit"
+              "value": "França"
             },
             {
               "label": "Gènere",
-              "value": "Drama, Autobiogràfic, Basat en novel·la"
+              "value": "Policíac, Thriller"
             },
             {
               "label": "Direcció",
-              "value": "Marianne Elliott"
+              "value": "Pascal Bonitzer"
             },
             {
               "label": "Guió",
-              "value": "Rebecca Lenkiewicz, Marianne Elliott"
+              "value": "Basat en Maigret et les Vieillards de Georges Simenon"
             },
             {
               "label": "Repartiment",
-              "value": "Gillian Anderson, Jason Isaacs, Denis Lill, Rebecca Ineson, Tucker St. Ivany"
-            },
-            {
-              "label": "Director de Fotografia",
-              "value": "Hélène Louvart"
-            },
-            {
-              "label": "Música",
-              "value": "Chris Roe"
-            },
-            {
-              "label": "Muntatge",
-              "value": "Gareth C. Scales, Luca Zucchetti"
-            },
-            {
-              "label": "Direcció d'Art",
-              "value": "Philip Barber"
-            },
-            {
-              "label": "Disseny de Producció",
-              "value": "Christina Moore"
-            },
-            {
-              "label": "Vestuari",
-              "value": "Aena Witcombe"
-            },
-
-            {
-              "label": "So",
-              "value": "ST DOLEY DIGITAL"
+              "value": "Denis Podalydès, Irène Jacob, Olivier Rabourdin, Anne Alvaro, Manuel Guillot, Dominique Reymond, Laurent Poitrenaux, Micha Lescot"
             },
             {
               "label": "V.O.",
-              "value": "Anglès"
+              "value": "Francès"
             },
             {
-              "label": "Qualificació",
-              "value": "En tràmit"
+              "label": "Estrena en sales",
+              "value": "27 de març de 2025"
             }
           ]
         }
@@ -179,7 +151,7 @@
         "type": "parallax",
         "data": {
           "id": "parallax",
-          "image": "/assets/images/DSC01586 Large.jpeg"
+          "image": "/assets/images/_MAI1279 Large.jpeg"
         }
       },
       {
@@ -189,116 +161,32 @@
           "title": "Galeria",
           "images": [
             {
-              "image": "/assets/images/DSC01289 Large.jpeg",
-              "title": "El camí de la sal - Imatge 1"
+              "image": "/assets/images/_MAI0490 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imatge 1"
             },
             {
-              "image": "/assets/images/DSC01586 Large.jpeg",
-              "title": "El camí de la sal - Imatge 2"
+              "image": "/assets/images/_MAI0676 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imatge 2"
             },
             {
-              "image": "/assets/images/DSC01643 Large.jpeg",
-              "title": "El camí de la sal - Imatge 3"
+              "image": "/assets/images/_MAI1279 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imatge 3"
             },
             {
-              "image": "/assets/images/DSC01694 Large.jpeg",
-              "title": "El camí de la sal - Imatge 4"
+              "image": "/assets/images/_MAI1660b Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imatge 4"
             },
             {
-              "image": "/assets/images/DSC01714 Large.jpeg",
-              "title": "El camí de la sal - Imatge 5"
+              "image": "/assets/images/_MAI1815 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imatge 5"
             },
             {
-              "image": "/assets/images/DSC01759 Large.jpeg",
-              "title": "El camí de la sal - Imatge 6"
+              "image": "/assets/images/_MAI2448 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imatge 6"
             },
             {
-              "image": "/assets/images/DSC01785 Large.jpeg",
-              "title": "El camí de la sal - Imatge 7"
-            },
-            {
-              "image": "/assets/images/DSC01829 Large.jpeg",
-              "title": "El camí de la sal - Imatge 8"
-            },
-            {
-              "image": "/assets/images/DSC01851 Large.jpeg",
-              "title": "El camí de la sal - Imatge 9"
-            },
-            {
-              "image": "/assets/images/DSC01874 Large.jpeg",
-              "title": "El camí de la sal - Imatge 10"
-            },
-            {
-              "image": "/assets/images/DSC02029 Large.jpeg",
-              "title": "El camí de la sal - Imatge 11"
-            },
-            {
-              "image": "/assets/images/DSC02128 Large.jpeg",
-              "title": "El camí de la sal - Imatge 12"
-            },
-            {
-              "image": "/assets/images/DSC02133 Large.jpeg",
-              "title": "El camí de la sal - Imatge 13"
-            },
-            {
-              "image": "/assets/images/DSC02391 Large.jpeg",
-              "title": "El camí de la sal - Imatge 14"
-            },
-            {
-              "image": "/assets/images/DSC02422 Large.jpeg",
-              "title": "El camí de la sal - Imatge 15"
-            },
-            {
-              "image": "/assets/images/DSC02444 Large.jpeg",
-              "title": "El camí de la sal - Imatge 16"
-            },
-            {
-              "image": "/assets/images/DSC02935 Large.jpeg",
-              "title": "El camí de la sal - Imatge 17"
-            },
-            {
-              "image": "/assets/images/DSC03700 Large.jpeg",
-              "title": "El camí de la sal - Imatge 18"
-            },
-            {
-              "image": "/assets/images/DSC04003 Large.jpeg",
-              "title": "El camí de la sal - Imatge 19"
-            },
-            {
-              "image": "/assets/images/DSC04297 Large.jpeg",
-              "title": "El camí de la sal - Imatge 20"
-            },
-            {
-              "image": "/assets/images/DSC04408 Large.jpeg",
-              "title": "El camí de la sal - Imatge 21"
-            },
-            {
-              "image": "/assets/images/DSC04747 Large.jpeg",
-              "title": "El camí de la sal - Imatge 22"
-            },
-            {
-              "image": "/assets/images/DSC05056 Large.jpeg",
-              "title": "El camí de la sal - Imatge 23"
-            },
-            {
-              "image": "/assets/images/DSC05120 Large.jpeg",
-              "title": "El camí de la sal - Imatge 24"
-            },
-            {
-              "image": "/assets/images/DSC05152 Large.jpeg",
-              "title": "El camí de la sal - Imatge 25"
-            },
-            {
-              "image": "/assets/images/DSC07607 Large.jpeg",
-              "title": "El camí de la sal - Imatge 26"
-            },
-            {
-              "image": "/assets/images/DSC07933 Large.jpeg",
-              "title": "El camí de la sal - Imatge 27"
-            },
-            {
-              "image": "/assets/images/DSC09637 Large.jpeg",
-              "title": "El camí de la sal - Imatge 28"
+              "image": "/assets/images/_MAI7184 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imatge 7"
             }
           ]
         }
@@ -307,7 +195,7 @@
         "type": "parallax",
         "data": {
           "id": "parallax",
-          "image": "/assets/images/DSC02133 Large.jpeg"
+          "image": "/assets/images/_MAI1815 Large.jpeg"
         }
       },
       {
@@ -319,30 +207,58 @@
           "quotes": [
             {
               "image": null,
-              "text": "Està protagonitzada per dos actors de luxe, Gillian Anderson i Jason Isaacs, ambdós amb interpretacions encantadores, emotives i discretes.",
+              "text": "Sorprendent i seductora",
               "authorName": "",
-              "authorMedia": "The Guardian",
+              "authorMedia": "TÉLÉRAMA",
               "linkURL": ""
             },
             {
               "image": null,
-              "text": "Una brillant història d'amor i resistència en una situació que, d'una altra manera, podria doblegar la majoria de la gent.",
+              "text": "Un Maigret encantador",
               "authorName": "",
-              "authorMedia": "Deadline",
+              "authorMedia": "LE FIGARO",
               "linkURL": ""
             },
             {
               "image": null,
-              "text": "Un drama intel·ligent i agredolç amb moments d'humor i humanitat ben col·locats.",
+              "text": "Un cast excepcional",
               "authorName": "",
-              "authorMedia": "The Australian",
+              "authorMedia": "LE NOUVEL OBS",
               "linkURL": ""
             },
             {
               "image": null,
-              "text": "Les interpretacions són excel·lents: aquest nucli emocional sòlid permet a la pel·lícula afegir llums i ombres en altres llocs (...). La pel·lícula fa el que fa amb aplom.",
+              "text": "Brillant",
               "authorName": "",
-              "authorMedia": "The Financial Times",
+              "authorMedia": "LES INROCKUPTIBLES",
+              "linkURL": ""
+            },
+            {
+              "image": null,
+              "text": "Un cast excepcional",
+              "authorName": "",
+              "authorMedia": "LES INROCKUPTIBLES",
+              "linkURL": ""
+            },
+            {
+              "image": null,
+              "text": "Un guió atrapant, agut i precís",
+              "authorName": "",
+              "authorMedia": "LIRE",
+              "linkURL": ""
+            },
+            {
+              "image": null,
+              "text": "Meravillosament interpretada",
+              "authorName": "",
+              "authorMedia": "POSITIF",
+              "linkURL": ""
+            },
+            {
+              "image": null,
+              "text": "Una màquina perfectament engrassada",
+              "authorName": "",
+              "authorMedia": "LES FICHES DU CINÉMA",
               "linkURL": ""
             }
           ]
@@ -352,22 +268,25 @@
         "type": "parallax",
         "data": {
           "id": "parallax",
-          "image": "/assets/images/DSC02444 Large.jpeg"
+          "image": "/assets/images/_MAI2448 Large.jpeg"
         }
       },
       {
-        "type": "logos",
+        "type": "logosAndShare",
         "data": {
-          "id": "logosDistribution",
-          "title": "Distribuït per",
-          "logos": [
-            {
-              "image": "/assets/images/Logo_MOVIE_FILMS_BLANC_Small.png",
-              "title": "",
-              "URL": "",
-              "id": ""
-            }
-          ]
+          "id": "distribucio-i-comparteix",
+          "logos": {
+            "title": "Distribuït per",
+            "logos": [
+              {
+                "image": "/assets/images/Logotipo Adso — Medium_Baja.png",
+                "title": "",
+                "URL": "",
+                "id": ""
+              }
+            ]
+          },
+          "shareTitle": "Comparteix"
         }
       }
     ],

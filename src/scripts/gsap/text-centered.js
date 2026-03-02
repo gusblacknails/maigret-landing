@@ -427,32 +427,11 @@ function initTextCenteredScrollable(element) {
     // #endregion
     
     const checkAndSetupScroll = () => {
-        // Wait for layout to stabilize
         requestAnimationFrame(() => {
-            // Desktop: Use smaller percentage for better balance
-            const isDesktop = window.innerWidth >= 768;
-            const maxHeightPercentage = isDesktop ? 0.65 : 0.7;
-            const maxHeight = window.innerHeight * maxHeightPercentage;
-            
-            const textHeight = textElement.scrollHeight;
-            
-            // If text is taller than container, make it scrollable
-            if (textHeight > maxHeight) {
-                wrapperElement.style.maxHeight = `${maxHeight}px`;
-                wrapperElement.style.overflowY = 'auto';
-                
-                // Mark element as scrollable for horizontal scroll handler
-                element.setAttribute('data-has-internal-scroll', 'true');
-                element.__internalScrollElement = wrapperElement;
-                
-                // #region agent log
-                fetch('http://127.0.0.1:7246/ingest/d523df54-e0a0-4008-803e-3a9b024a6fd2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'text-centered.js:checkAndSetupScroll',message:'Scrollable enabled',data:{textHeight,maxHeight,wrapperMaxHeight:wrapperElement.style.maxHeight,textElementComputed:getComputedStyle(textElement).maxWidth,textElementWidth:textElement.offsetWidth},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'D'})}).catch(()=>{});
-                // #endregion
-            } else {
-                wrapperElement.style.maxHeight = 'none';
-                wrapperElement.style.overflowY = 'visible';
-                element.removeAttribute('data-has-internal-scroll');
-            }
+            // No scroll interno: dejar que el CSS controle max-height (100vh) y overflow
+            wrapperElement.style.maxHeight = '';
+            wrapperElement.style.overflowY = '';
+            element.removeAttribute('data-has-internal-scroll');
         });
     };
     
@@ -548,62 +527,11 @@ export function scrollInternalScroll(element, deltaY) {
 }
 
 /**
- * Initialize font size adjustment for text-centered component
+ * Font size: controlado por CSS fluid (clamp + vw) para que sea proporcional al viewport.
+ * No se aplica cálculo JS para no pisar el tamaño fluido.
  */
-function initTextCenteredFontSize(element) {
-    const textElement = element.querySelector('.c-intro__text');
-    const containerElement = element.querySelector('.u-container--center .u-col') || element;
-    
-    if (!textElement || !textElement.textContent.trim()) return;
-    
-    // Only adjust font size if not in horizontal scroll mode with scrollable text
-    // In horizontal mode, don't adjust font size - let CSS handle all formatting
-    // The scrollable wrapper handles overflow instead
-    if (isHorizontalMode()) {
-        // #region agent log
-        fetch('http://127.0.0.1:7246/ingest/d523df54-e0a0-4008-803e-3a9b024a6fd2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'text-centered.js:initTextCenteredFontSize',message:'Skipping font size calc - horizontal mode',data:{hasInternalScroll:element.hasAttribute('data-has-internal-scroll')},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
-        return;
-    }
-    
-    // Wait for fonts and DOM to be ready
-    const initCalculation = () => {
-        // Wait a bit for layout to stabilize
-        setTimeout(() => {
-            calculateOptimalFontSize(textElement, containerElement);
-        }, 300);
-    };
-    
-    if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(initCalculation);
-    } else {
-        // Fallback if fonts API not available
-        if (document.readyState === 'complete') {
-            initCalculation();
-        } else {
-            window.addEventListener('load', initCalculation);
-        }
-    }
-    
-    // Recalculate on resize with debounce
-    let resizeTimeout;
-    const handleResize = () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            if (!isHorizontalMode() || !element.hasAttribute('data-has-internal-scroll')) {
-                calculateOptimalFontSize(textElement, containerElement);
-            }
-        }, 250);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    // Store cleanup function
-    if (!element.__fontSizeCleanup) {
-        element.__fontSizeCleanup = () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }
+function initTextCenteredFontSize(_element) {
+    // Dejamos que el tamaño lo defina solo el CSS (clamp + vw) en todos los modos
 }
 
 // Main initialization function

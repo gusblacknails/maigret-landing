@@ -4,28 +4,28 @@
         "basePath": "/",
         
         "site": {
-            "movieName": "El sendero de la sal",
-            "url": "elsenderodelasal.es",
-            "description": "Inspirada en hechos reales y basada en la novela best seller homónimo, El sendero de la sal narra la emotiva y esperanzadora historia de una pareja cuya conexión con la naturaleza les ayuda a superar la adversidad y a reencontrarse el uno con el otro.",
-            "image": "assets/images/DSC01289 Large.jpeg"
+            "movieName": "Maigret y la muerte del embajador",
+            "url": "maigret.es",
+            "description": "El icónico comisario Jules Maigret vuelve a la gran pantalla en esta adaptación de la novela de Georges Simenon. Denis Podalydès interpreta al legendario inspector en un thriller policíaco que investiga el asesinato de un antiguo embajador francés.",
+            "image": "assets/images/Maigret_Poster Esp_LR Large.jpeg"
         },
 
 
         "config": {
 
-            "googleFontsURL": "https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap",
-            "fontBase": "Montserrat, sans-serif",
-            "fontDisplay": "Montserrat, sans-serif",
-            "colorBase": "#000000",
-            "colorAccent": "#f1c40f",
-            "colorBgPrimary": "#17617f",
-            "colorBgSecondary": "#0d4a63",
+            "googleFontsURL": "",
+            "fontBase": "Aroxima",
+            "fontDisplay": "Aroxima",
+            "colorBase": "#353230",
+            "colorAccent": "#CC222A",
+            "colorBgPrimary": "#F2EDE8",
+            "colorBgSecondary": "#E8E2DC",
             "scrollMode": "horizontal-snap"
         },
 
 
         "menu": {
-            "logo": "/assets/images/TITOL_sol.png",
+            "logo": "/assets/images/logo_maigret_navbar.png",
             "links": [
 
                 {
@@ -59,7 +59,7 @@
 
                 {
                     "text": "Prensa",
-                    "url": "https://drive.google.com/drive/folders/1Tu17mD6w1rOKw7YUhC3LsmSi8RDEGGfz",
+                    "url": "https://drive.google.com/drive/folders/1zBe9b2-yuP-aq_8vXvYx9Cd-Cp3Equ3I",
                     "target": "_blank"
                 }
             ]
@@ -77,11 +77,11 @@
                         "mobile": "",
                         "desktop": ""
                     },
-                    "video": "https://beka-media.b-cdn.net/landings-hero-videos/EL_SENDERO_DE_LA_SAL_TRL_LANDING",
-                    "heroLogo": "assets/images/hero_cast.png",
+                    "video": "https://adso-pictures.b-cdn.net/landing-videos/MAIGRET_TRL_FONDO_WEB",
+                    "heroLogo": "assets/images/logo_maigret_hero.png",
                     "buttons": [
                         {
-                            "text": "Ver Trailer", 
+                            "text": "Ver Tráiler", 
                             "url": "#trailer", 
                             "target": null 
                             
@@ -96,7 +96,7 @@
                 "data": {
                     "id": "intro",
                     "title": "Sinopsis",
-                    "text": "Inspirada en hechos reales y basada en la novela best seller homónimo, El sendero de la sal narra la emotiva y esperanzadora historia de una pareja cuya conexión con la naturaleza les ayuda a superar la adversidad y a reencontrarse el uno con el otro. Tras perder su hogar y su medio de vida, deciden emprender impulsivamente un recorrido de más de 1.000 kilómetros a lo largo de la costa suroeste de Inglaterra, un viaje especialmente difícil tras el reciente diagnóstico del marido con una enfermedad neurodegenerativa."
+                    "text": "El comisario Maigret, convocado urgentemente al Quai d'Orsay, acude allí con el comandante Janvier. Encuentran a Mademoiselle Larrieu en estado de shock. Esa misma mañana, descubrió el cuerpo acribillado a balazos de Monsieur Berthier-Lagès, un renombrado exembajador, a quien había servido durante 46 años. En el apartamento de la víctima, Maigret y Janvier se hacen con miles de cartas. El diplomático mantenía correspondencia romántica durante cincuenta años con la princesa de Vuynes, cuyo esposo, por una extraña coincidencia, acaba de fallecer. Al enfrentarse a miembros de ambas familias y al sospechoso silencio de Mademoiselle Larrieu, Maigret se encuentra con una sorpresa tras otra."
                 }
             },
             
@@ -105,7 +105,7 @@
                 "type":"parallax",
                 "data": {
                     "id": "parallax",
-                    "image": "assets/images/DSC01289 Large.jpeg"
+                    "image": "assets/images/_MAI0490 Large.jpeg"
 
                 }
             },
@@ -116,8 +116,8 @@
                 "data": {
                     "title": "Trailer",
                     "id": "trailer",
-                    "youtubeId": "1PCkTL0q1lA",
-                    "poster": "/assets/images/ESDLS 1280x720 MINIATURA TRAILER_ORIGINAL.jpeg"
+                    "youtubeId": "VwVnLF9r3uk",
+                    "poster": "/assets/images/poster_trailer_maigret.png"
                 }
             },            
 
@@ -127,75 +127,47 @@
                 "variant": "stagger-list",
                 "data": {
                     "id": "movie-details",
-                    "poster": "/assets/images/EL SENDERO DE LA SAL_ESP-100x70-V2-CAPAS copy Large.jpeg",
+                    "poster": "/assets/images/Maigret_Poster Esp_LR Large.jpeg",
                     "specs": [
                         {
                             "label": "Título Original",
-                            "value": "The Salt Path"
+                            "value": "Maigret and the Dead Lover"
                         },
                         {
                             "label": "Año",
-                            "value": "2024"
+                            "value": "2025"
                         },
                         {
                             "label": "Duración",
-                            "value": "115 min"
+                            "value": "Por confirmar"
                         },
                         {
                             "label": "Nacionalidad",
-                            "value": "Reino Unido"
+                            "value": "Francia"
                         },
                         {
                             "label": "Género",
-                            "value": "Drama, Autobiográfico, Basado en novela"
+                            "value": "Policíaco, Thriller"
                         },
                         {
                             "label": "Dirección",
-                            "value": "Marianne Elliott"
+                            "value": "Pascal Bonitzer"
                         },
                         {
                             "label": "Guion",
-                            "value": "Rebecca Lenkiewicz, Marianne Elliott"
+                            "value": "Basado en Maigret et les Vieillards de Georges Simenon"
                         },
                         {
                             "label": "Reparto",
-                            "value": "Gillian Anderson, Jason Isaacs, Denis Lill, Rebecca Ineson, Tucker St. Ivany"
-                        },
-                        {
-                            "label": "Director de Fotografía",
-                            "value": "Hélène Louvart"
-                        },
-                        {
-                            "label": "Música",
-                            "value": "Chris Roe"
-                        },
-                        {
-                            "label": "Montaje",
-                            "value": "Gareth C. Scales, Luca Zucchetti"
-                        },
-                        {
-                            "label": "Dirección de Arte",
-                            "value": "Philip Barber"
-                        },
-                        {
-                            "label": "Diseño de Producción",
-                            "value": "Christina Moore"
-                        },
-                        {
-                            "label": "Vestuario",
-                            "value": "Aena Witcombe"
-                        },
-                        {
-                            "label": "Sonido",
-                            "value": "ST DOLEY DIGITAL"
+                            "value": "Denis Podalydès, Irène Jacob, Olivier Rabourdin, Anne Alvaro, Manuel Guillot, Dominique Reymond, Laurent Poitrenaux, Micha Lescot"
                         },
                         {
                             "label": "V.O.",
-                            "value": "Inglés"
+                            "value": "Francés"
                         },
                         {
-                            "label": "Calificación",
-                            "value": "En trámite"
+                            "label": "Estreno en cines",
+                            "value": "27 de marzo de 2025"
                         }
                     ]
                 }
@@ -204,7 +176,7 @@
                 "type":"parallax",
                 "data": {
                     "id": "parallax",
-                    "image": "assets/images/DSC01586 Large.jpeg"
+                    "image": "assets/images/_MAI1279 Large.jpeg"
 
                 }
             },
@@ -218,97 +190,38 @@
                     "title": "Galería",
                     "images": [
                         {
-                            "image": "assets/images/DSC01289 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 1"
+                            "image": "assets/images/_MAI0490 Large.jpeg",
+                            "title": "Maigret and the Dead Lover - Imagen 1"
                         },
                         {
-                            "image": "assets/images/DSC01643 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 2"
+                            "image": "assets/images/_MAI0676 Large.jpeg",
+                            "title": "Maigret and the Dead Lover - Imagen 2"
                         },
                         {
-                            "image": "assets/images/DSC01714 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 3"
+                            "image": "assets/images/_MAI1279 Large.jpeg",
+                            "title": "Maigret and the Dead Lover - Imagen 3"
                         },
                         {
-                            "image": "assets/images/DSC01785 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 4"
+                            "image": "assets/images/_MAI1660b Large.jpeg",
+                            "title": "Maigret and the Dead Lover - Imagen 4"
                         },
                         {
-                            "image": "assets/images/DSC01829 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 5"
+                            "image": "assets/images/_MAI1815 Large.jpeg",
+                            "title": "Maigret and the Dead Lover - Imagen 5"
                         },
                         {
-                            "image": "assets/images/DSC02128 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 6"
+                            "image": "assets/images/_MAI2448 Large.jpeg",
+                            "title": "Maigret and the Dead Lover - Imagen 6"
                         },
                         {
-                            "image": "assets/images/DSC02133 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 7"
-                        },
-                        {
-                            "image": "assets/images/DSC02391 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 8"
-                        },
-                        {
-                            "image": "assets/images/DSC02422 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 9"
-                        },
-                        {
-                            "image": "assets/images/DSC02444 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 10"
-                        },
-                        {
-                            "image": "assets/images/DSC02935 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 11"
-                        },
-                        {
-                            "image": "assets/images/DSC03700 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 12"
-                        },
-                        {
-                            "image": "assets/images/DSC04003 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 13"
-                        },
-                        {
-                            "image": "assets/images/DSC04297 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 14"
-                        },
-                        {
-                            "image": "assets/images/DSC04747 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 15"
-                        },
-                        {
-                            "image": "assets/images/DSC05056 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 16"
-                        },
-                        {
-                            "image": "assets/images/DSC05120 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 17"
-                        },
-                        {
-                            "image": "assets/images/DSC05152 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 18"
-                        },
-                        {
-                            "image": "assets/images/DSC07607 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 19"
-                        },
-                        {
-                            "image": "assets/images/DSC09637 Large.jpeg",
-                            "title": "El sendero de la sal - Imagen 20"
+                            "image": "assets/images/_MAI7184 Large.jpeg",
+                            "title": "Maigret and the Dead Lover - Imagen 7"
                         }
                     ]
                 }
             },
          
-            {
-                "type":"parallax",
-                "data": {
-                    "id": "parallax",
-                    "image": "assets/images/DSC02133 Large.jpeg"
 
-                }
-            },
             {
                 "type": "quotes",
                 "data": {
@@ -318,105 +231,82 @@
                     "quotes": [
                         {
                             "image": null, 
-                            "text": "Está protagonizada por dos actores de lujo, Gillian Anderson y Jason Isaacs, ambos con interpretaciones encantadoras, emotivas y discretas.", 
+                            "text": "Sorprendente y seductora", 
                             "authorName": "", 
-                            "authorMedia": "The Guardian", 
+                            "authorMedia": "TÉLÉRAMA", 
                             "linkURL": "" 
                         },
                         {
                             "image": null, 
-                            "text": "Una brillante historia de amor y resistencia en una situación que, de otro modo, podría doblegar a la mayoría de la gente.", 
+                            "text": "Un Maigret encantador", 
                             "authorName": "", 
-                            "authorMedia": "Deadline", 
+                            "authorMedia": "LE FIGARO", 
                             "linkURL": "" 
                         },
                         {
                             "image": null, 
-                            "text": "Un drama inteligente y agridulce con momentos de humor y humanidad bien colocados.", 
+                            "text": "Un cast excepcional", 
                             "authorName": "", 
-                            "authorMedia": "The Australian", 
+                            "authorMedia": "LE NOUVEL OBS", 
                             "linkURL": "" 
                         },
                         {
                             "image": null, 
-                            "text": "Las interpretaciones son excelentes: ese sólido núcleo emocional permite a la película añadir luces y sombras en otros lugares (...). La película hace lo que hace con aplomo.", 
+                            "text": "Brillante", 
                             "authorName": "", 
-                            "authorMedia": "The Financial Times", 
+                            "authorMedia": "LES INROCKUPTIBLES", 
+                            "linkURL": "" 
+                        },
+                        {
+                            "image": null, 
+                            "text": "Un cast excepcional", 
+                            "authorName": "", 
+                            "authorMedia": "LES INROCKUPTIBLES", 
+                            "linkURL": "" 
+                        },
+                        {
+                            "image": null, 
+                            "text": "Un guion atrapante, agudo y preciso", 
+                            "authorName": "", 
+                            "authorMedia": "LIRE", 
+                            "linkURL": "" 
+                        },
+                        {
+                            "image": null, 
+                            "text": "Maravillosamente interpretada", 
+                            "authorName": "", 
+                            "authorMedia": "POSITIF", 
+                            "linkURL": "" 
+                        },
+                        {
+                            "image": null, 
+                            "text": "Una máquina perfectamente engrasada", 
+                            "authorName": "", 
+                            "authorMedia": "LES FICHES DU CINÉMA", 
                             "linkURL": "" 
                         }
                     ]
                 }
             },
                     
-            {
-                "type":"parallax",
-                "data": {
-                    "id": "parallax",
-                    "image": "assets/images/DSC02444 Large.jpeg"
-
-                }
-            },
+   
 
             {
-                "type": "logos",
+                "type": "logosAndShare",
                 "data": {
-                    "id": "logosDistribution", 
-                    "title": "Distribuido por", 
-                    "logos": [
-
-                        {
-                            "image": "/assets/images/Logotipo Adso — Medium_Baja.png",
-                            "title": "",
-                            "URL": "",
-                            "id": ""
-                        }
-            
-                    ]
-                    }
-            },
-            {
-                "type": "textAndImageOne",
-                "variant": "slide-parallax",
-                "data": {
-                    "id": "text-image-one-demo",
-                    "subtitle": "Ejemplo de",
-                    "title": "Text and Image One",
-                    "image": "assets/images/DSC01643 Large.jpeg",
-                    "text": "<p>Este es un ejemplo del componente Text and Image One. Incluye una imagen y texto lado a lado, perfecto para presentar información visual acompañada de contenido descriptivo.</p><p>El componente soporta diferentes variantes de animación con GSAP ScrollTrigger para crear efectos visuales atractivos.</p>"
-                }
-            },
-            {
-                "type": "textAndImageTwo",
-                "variant": "slide-parallax",
-                "data": {
-                    "id": "text-image-two-demo",
-                    "subtitle": "Ejemplo de",
-                    "title": "Text and Image Two",
-                    "image": "assets/images/DSC01714 Large.jpeg",
-                    "text": "<p>Este es un ejemplo del componente Text and Image Two. Similar al anterior pero con una estructura de layout diferente, ideal para variar el diseño de la página.</p><p>Permite mostrar contenido de forma alternada con imágenes para mantener el interés visual.</p>"
-                }
-            },
-            {
-                "type": "callToAction",
-                "variant": "slide-overlay",
-                "data": {
-                    "id": "call-to-action-demo",
-                    "subtitle": "Call to Action",
-                    "title": "Descubre más sobre la película",
-                    "imageMobile": "assets/images/DSC02128 Large.jpeg",
-                    "imageDesktop": "assets/images/DSC02133 Large.jpeg",
-                    "linkText": "Ver más información",
-                    "linkURL": "#intro"
-                }
-            },
-            
-            {
-                "type": "share",
-                "variant": "fade-icons",
-                "data": {
-                    "id": "share-demo",
-                    "title": "Comparte",
-                    "background": null
+                    "id": "distribucion-y-comparte",
+                    "logos": {
+                        "title": "Distribuido por",
+                        "logos": [
+                            {
+                                "image": "/assets/images/Logotipo Adso — Medium_Baja.png",
+                                "title": "",
+                                "URL": "",
+                                "id": ""
+                            }
+                        ]
+                    },
+                    "shareTitle": "Comparte"
                 }
             }
             

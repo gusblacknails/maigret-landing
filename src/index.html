@@ -23,10 +23,12 @@
     <script src="https://adso-pictures.b-cdn.net/parallax.js" ></script>
     {% endif %}
 
-    {# Google Fonts #}
+    {# Google Fonts (solo si hay URL) #}
+    {% if data.config.googleFontsURL %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="{{ data.config.googleFontsURL }}" rel="stylesheet">
+    {% endif %}
 
 
     {# OpenGraph Facebook/General #}
@@ -58,6 +60,34 @@
         --color-accent: {{ data.config.colorAccent }};
         --color-bg-primary: {{ data.config.colorBgPrimary }};
         --color-bg-secondary: {{ data.config.colorBgSecondary }};
+    }
+</style>
+
+{# Local fonts (src/assets/fonts) #}
+<style>
+    @font-face {
+        font-family: 'Aroxima';
+        src: url('assets/fonts/Aroxima-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Aroxima';
+        src: url('assets/fonts/Aroxima-Medium.otf') format('opentype');
+        font-weight: 500;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Aroxima';
+        src: url('assets/fonts/Aroxima-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Univers LT Std';
+        src: url('assets/fonts/UniversLTStd-LightUltraCn 2.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
     }
 </style>
 
@@ -121,7 +151,7 @@
     }
     .c-text-and-image-one__subtitle, .c-intro__title {
    
-    font-size: 2.5rem !important;
+    font-size: 2.5rem ;
     
     }
     #trailerTitle{
@@ -186,6 +216,9 @@
     .--page-at-top .c-menu__anchor:hover {
         color: var(--color-accent) !important;
     }
+    .c-menu__nav.--is-active .c-menu__anchor {
+        color: var(--color-base) !important;
+    }
         }
 
     #trailer, footer{
@@ -199,6 +232,22 @@
     .c-menu__anchor, .c-details__label{
         font-family: var(--font-display);
         text-transform: uppercase !important;
+    }
+    .c-menu__anchor {
+        color: var(--color-base) !important;
+    }
+    .--page-at-top .c-menu__anchor {
+        color: var(--color-base) !important;
+    }
+    .c-menu__toggle-text {
+        color: var(--color-base) !important;
+    }
+    .c-menu__toggle .c-menu__toggle-anim {
+        background-color: var(--color-base) !important;
+    }
+    .c-menu__toggle {
+        background-color: transparent !important;
+        border: 2px solid var(--color-base) !important;
     }
     .c-logos__title{
         font-family: var(--font-display);
@@ -315,6 +364,7 @@
         {% import "components/_hero.html" as hero %}
         {% import "components/_image.html" as image %}
         {% import "components/_logos.html" as logos %}
+        {% import "components/_logos-and-share.html" as logosAndShare %}
         {% import "components/_quotes.html" as quotes %}
         {% import "components/_share.html" as share %}
         {% import "components/_text-and-image-one.html" as textAndImageOne %}
@@ -355,6 +405,9 @@
 
             {% elif section.type === "logos" %}
                 {{ logos.component(section.data, section.variant) }}
+
+            {% elif section.type === "logosAndShare" %}
+                {{ logosAndShare.component(section.data, data.site, section.variant) }}
 
             {% elif section.type === "quotes" %}
                 {{ quotes.component(section.data, section.variant) }}

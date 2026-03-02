@@ -34,8 +34,11 @@ body.horizontal-scroll-active {
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.8s ease;
-    
-    // Add dark overlay for better text contrast
+
+    // Corregir imagen blanquecina: más contraste y saturación
+    filter: contrast(1.08) saturate(1.15) brightness(0.95);
+
+    // Dark overlay for better text contrast
     &::before {
       content: '';
       position: absolute;
@@ -43,12 +46,12 @@ body.horizontal-scroll-active {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7); // Dark overlay (70% opacity for more contrast)
+      background: rgba(0, 0, 0, 0.7);
       z-index: 1;
-      opacity: 1; // Always visible when image is visible
+      opacity: 1;
     }
   }
-  
+
   // Ensure content is above parallax image
   .c-main {
     position: relative;

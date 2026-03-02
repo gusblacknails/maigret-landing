@@ -10,8 +10,21 @@
   border-top: 1px solid rgba(var(--color-black), 0.2);
   border-bottom: 1px solid rgba(var(--color-black), 0.2);
 
+  .u-container {
+    align-items: center;
+  }
+
+  .u-col {
+    display: flex;
+    justify-content: center;
+  }
+
   @include breakpoint(md) {
     padding: var(--space-80) 0;
+
+    .u-col {
+      display: block;
+    }
   }
 
   @include breakpoint(lg) {
@@ -27,7 +40,7 @@
 .c-video__video {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: min(94vw, 400px);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   cursor: pointer;
@@ -38,6 +51,16 @@
   overflow: hidden;
   box-shadow: var(--shadow-lg);
   background-color: var(--color-bg-secondary);
+
+  @media (max-width: 767px) {
+    width: min(94vw, 400px);
+    flex-shrink: 0;
+  }
+
+  @include breakpoint(md) {
+    max-width: 1200px;
+    width: 100%;
+  }
 
   iframe {
     position: absolute;

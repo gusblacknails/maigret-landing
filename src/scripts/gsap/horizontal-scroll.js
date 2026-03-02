@@ -191,9 +191,8 @@ function initSnapHorizontal(main) {
             ease: "power2.out",
             onComplete: () => {
                 isScrolling = false;
-                // Update scroll indicator
                 updateScrollIndicator();
-                // Dispatch custom event for parallax components
+                if (typeof updateNextArrowVisibility === 'function') updateNextArrowVisibility();
                 window.dispatchEvent(new CustomEvent('sectionChanged', { detail: { index } }));
             }
         });
@@ -230,6 +229,99 @@ function initSnapHorizontal(main) {
     }
     
     const scrollIndicator = createScrollIndicator();
+
+    // Flecha siguiente sección: se añade a .c-menu para que no la mueva el parallax; se posiciona con top en px para quedar abajo a la derecha del viewport
+    function createNextSectionArrow() {
+        const existingBtn = document.querySelector('.horizontal-scroll-next-arrow');
+        if (existingBtn) existingBtn.remove();
+        if (!nonParallaxSections.length) return null;
+        const menuEl = document.querySelector('.c-menu');
+        if (!menuEl) return null;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'horizontal-scroll-next-arrow';
+        btn.setAttribute('aria-label', 'Siguiente sección');
+        const gap = 24;
+        function positionArrow() {
+            btn.style.setProperty('position', 'fixed', 'important');
+            btn.style.setProperty('top', `${window.innerHeight - 52 - gap}px`, 'important');
+            btn.style.setProperty('right', `${gap}px`, 'important');
+            btn.style.setProperty('bottom', 'auto', 'important');
+            btn.style.setProperty('left', 'auto', 'important');
+            btn.style.setProperty('z-index', '99999', 'important');
+            btn.style.pointerEvents = 'auto';
+        }
+        positionArrow();
+        window.addEventListener('resize', positionArrow);
+        window.addEventListener('load', positionArrow); // Re-posicionar tras cargar video/recursos
+        btn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        menuEl.appendChild(btn);
+        btn.addEventListener('click', () => {
+            const idx = window.__currentSectionIndex ?? 0;
+            if (idx < nonParallaxSections.length - 1) {
+                scrollToSectionIndex(idx + 1);
+            }
+        });
+        return btn;
+    }
+    const nextArrow = createNextSectionArrow();
+
+    // Flecha anterior (esquina inferior izquierda)
+    function createPrevSectionArrow() {
+        const existingBtn = document.querySelector('.horizontal-scroll-prev-arrow');
+        if (existingBtn) existingBtn.remove();
+        if (!nonParallaxSections.length) return null;
+        const menuEl = document.querySelector('.c-menu');
+        if (!menuEl) return null;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'horizontal-scroll-prev-arrow';
+        btn.setAttribute('aria-label', 'Sección anterior');
+        const gap = 24;
+        function positionArrow() {
+            btn.style.setProperty('position', 'fixed', 'important');
+            btn.style.setProperty('top', `${window.innerHeight - 52 - gap}px`, 'important');
+            btn.style.setProperty('left', `${gap}px`, 'important');
+            btn.style.setProperty('right', 'auto', 'important');
+            btn.style.setProperty('bottom', 'auto', 'important');
+            btn.style.setProperty('z-index', '99999', 'important');
+            btn.style.pointerEvents = 'auto';
+        }
+        positionArrow();
+        window.addEventListener('resize', positionArrow);
+        window.addEventListener('load', positionArrow); // Re-posicionar tras cargar video/recursos
+        btn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        menuEl.appendChild(btn);
+        btn.addEventListener('click', () => {
+            const idx = window.__currentSectionIndex ?? 0;
+            if (idx > 0) {
+                scrollToSectionIndex(idx - 1);
+            }
+        });
+        return btn;
+    }
+    const prevArrow = createPrevSectionArrow();
+
+    function updateNextArrowVisibility() {
+        if (!nextArrow) return;
+        const idx = window.__currentSectionIndex ?? 0;
+        const isLast = idx >= nonParallaxSections.length - 1;
+        nextArrow.style.opacity = isLast ? '0.35' : '1';
+        nextArrow.style.pointerEvents = isLast ? 'none' : 'auto';
+    }
+    function updatePrevArrowVisibility() {
+        if (!prevArrow) return;
+        const idx = window.__currentSectionIndex ?? 0;
+        const isFirst = idx <= 0;
+        prevArrow.style.opacity = isFirst ? '0.35' : '1';
+        prevArrow.style.pointerEvents = isFirst ? 'none' : 'auto';
+    }
+    updateNextArrowVisibility();
+    updatePrevArrowVisibility();
+    window.addEventListener('sectionChanged', () => {
+        updateNextArrowVisibility();
+        updatePrevArrowVisibility();
+    });
     
     // Update scroll indicator position
     function updateScrollIndicator() {
@@ -253,6 +345,12 @@ function initSnapHorizontal(main) {
     
     window.addEventListener('wheel', (e) => {
         if (isScrolling) {
+            e.preventDefault();
+            return;
+        }
+
+        // Si el scroll es sobre la galería (imágenes o thumbnails), no cambiar de pantalla; la galería gestiona el wheel
+        if (e.target.closest('.c-gallery-section__wrapper') || e.target.closest('.c-gallery-section__thumbnails')) {
             e.preventDefault();
             return;
         }
