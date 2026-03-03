@@ -163,6 +163,19 @@ $horizontal-scroll-arrow-inset: 24px;
   }
 }
 
+// Flechas solo desde 768px; ocultas en móvil
+.horizontal-scroll-next-arrow,
+.horizontal-scroll-prev-arrow {
+  display: none !important;
+}
+
+@include breakpoint(md) {
+  .horizontal-scroll-next-arrow,
+  .horizontal-scroll-prev-arrow {
+    display: flex !important;
+  }
+}
+
 // Smooth wrapper for ScrollSmoother
 #smooth-wrapper {
   position: relative;
@@ -205,7 +218,8 @@ body.horizontal-scroll-active {
     transition: opacity 0.1s ease-out;
   }
   
-  // All direct children sections
+  // All direct children sections (including .section-screen wrappers)
+  .section-screen,
   section[id],
   .c-hero,
   .c-intro,
@@ -233,6 +247,84 @@ body.horizontal-scroll-active {
     overflow-y: auto;
     overflow-x: hidden;
   }
+
+  // Section background: imagen en CSS; overlay por blend-mode (sin capa extra); contenido encima
+  .section-screen {
+    position: relative;
+
+    .section-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: var(--section-bg-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
+    }
+
+    .section-screen__content {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      width: 100%;
+      isolation: isolate;
+    }
+
+    // No forzar opacity aquí: las animaciones de entrada se disparan al cambiar de sección
+    // (horizontal-animations.js reproduce las timelines de cada bloque al hacer scroll o al cargar).
+  }
+
+  // Overlay sinopsis: extender hasta el borde superior para que no quede cortado entre navbar e imagen
+  .section-screen--intro {
+    overflow: visible;
+  }
+  .section-screen--intro .c-intro {
+    overflow: visible;
+  }
+  .section-screen--intro .c-intro::before {
+    top: calc(-1 * (var(--space-64) + var(--space-48)));
+    height: calc(100% + var(--space-64) + var(--space-48));
+  }
+
+  // Móvil: separar títulos de Sinopsis y Galería del navbar
+  @media (max-width: 767px) {
+    .c-intro,
+    .c-gallery-section {
+      padding-top: calc(var(--space-56) + var(--space-24));
+    }
+
+    // Galería en móvil: usar todo el ancho disponible sin cortarse
+    .c-gallery-section {
+      width: 100% !important;
+      max-width: 100vw;
+      box-sizing: border-box;
+      padding-left: var(--space-16);
+      padding-right: var(--space-16);
+
+      .c-gallery-section__wrapper,
+      .c-gallery-section__wrapper--2 {
+        width: 100% !important;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .c-gallery-section__thumbnails {
+        width: 100% !important;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
   
   // Gallery section margins on desktop
   @include breakpoint(md) {
@@ -254,19 +346,34 @@ body.horizontal-scroll-active {
       }
     }
   }
-  
-  // Parallax components should not take space - they're just image sources
-  .c-parallax {
-    display: none !important;
-    width: 0 !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+
+  // Gallery: centrado desde 1024px y separación de miniaturas con la flecha izquierda
+  @include breakpoint(lg) {
+    .c-gallery-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .c-gallery-section__wrapper,
+      .c-gallery-section__wrapper--2,
+      .c-gallery-section__thumbnails {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 1400px;
+        width: calc(100% - 2 * var(--space-40)) !important;
+      }
+
+      // Mismo padding a izquierda y derecha para centrar las miniaturas con la imagen grande (sin chocar con las flechas)
+      .c-gallery-section__thumbnails {
+        padding-left: calc(24px + 52px + var(--space-16));
+        padding-right: calc(24px + 52px + var(--space-16));
+        box-sizing: border-box;
+      }
+    }
   }
   
-  // Add gap between components to show parallax images behind
   .c-main.horizontal-scroll-wrapper {
-    gap: 100px; // Space between components to reveal parallax images
+    gap: 0;
   }
 
   // Centrado vertical de ficha, tráiler y críticas en el viewport
@@ -305,11 +412,11 @@ body.horizontal-scroll-active {
     position: fixed !important;
     top: 0 !important;
     z-index: 1000 !important;
-    background: var(--color-bg-primary) !important;
-    
+    background-color: var(--color-bg-primary) !important;
+
     // Remove transparency effects in horizontal mode
     &.--page-at-top {
-      background: var(--color-bg-primary) !important;
+      background-color: var(--color-bg-primary) !important;
       opacity: 1 !important;
     }
   }

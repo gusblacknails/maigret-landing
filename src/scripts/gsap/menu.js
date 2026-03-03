@@ -76,6 +76,11 @@ function initMenuSlideIn(menuElement) {
     });
     
     observer.observe(nav, { attributes: true });
+
+    // En desktop, limpiar cualquier estilo inline al cargar para evitar parpadeo/movimiento
+    if (isDesktop()) {
+        gsap.set([nav, links, mobileLogo], { clearProps: 'all' });
+    }
 }
 
 // Fade Blur Variant
@@ -124,6 +129,10 @@ function initMenuFadeBlur(menuElement) {
     });
     
     observer.observe(nav, { attributes: true });
+
+    if (isDesktop()) {
+        gsap.set([nav, links, mobileLogo], { clearProps: 'all' });
+    }
 }
 
 // Magnetic Links Variant
@@ -172,6 +181,10 @@ function initMenuMagneticLinks(menuElement) {
     });
     
     observer.observe(nav, { attributes: true });
+
+    if (isDesktop()) {
+        gsap.set([nav, links, mobileLogo], { clearProps: 'all' });
+    }
     
     // Magnetic effect on links (works on all screen sizes)
     links.forEach(link => {
@@ -230,10 +243,19 @@ function initMenuMinimalist(menuElement) {
     });
     
     observer.observe(nav, { attributes: true });
+
+    if (isDesktop()) {
+        gsap.set([nav, links, mobileLogo], { clearProps: 'all' });
+    }
 }
 
 // Main initialization function
 export function initMenu(menuElement, variant = 'default') {
+    if (!menuElement) return;
+    // En desktop no usar GSAP en el menú: lo controla solo CSS (body.hero-logo-not-loaded)
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+        return;
+    }
     const variants = {
         'slide-in': initMenuSlideIn,
         'fade-blur': initMenuFadeBlur,
@@ -241,7 +263,6 @@ export function initMenu(menuElement, variant = 'default') {
         'minimalist': initMenuMinimalist,
         'default': initMenuSlideIn
     };
-
     const initFn = variants[variant] || variants['default'];
     initFn(menuElement);
 }

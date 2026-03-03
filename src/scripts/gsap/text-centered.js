@@ -327,10 +327,6 @@ function calculateOptimalFontSize(textElement, containerElement) {
         return;
     }
     
-    // #region agent log
-    fetch('http://127.0.0.1:7246/ingest/d523df54-e0a0-4008-803e-3a9b024a6fd2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'text-centered.js:calculateOptimalFontSize',message:'Font size calculation started',data:{textElementWidth:textElement.offsetWidth,containerWidth:containerElement.offsetWidth,computedFontSize:getComputedStyle(textElement).fontSize,computedMaxWidth:getComputedStyle(textElement).maxWidth,computedTextAlign:getComputedStyle(textElement).textAlign,computedWordBreak:getComputedStyle(textElement).wordBreak,computedHyphens:getComputedStyle(textElement).hyphens},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'A'})}).catch(()=>{});
-    // #endregion
-    
     const isMobile = window.innerWidth < 768; // md breakpoint
     const maxHeightMobile = window.innerHeight * 0.8; // 80% of viewport height on mobile
     const maxHeightDesktop = window.innerHeight * 0.5; // 50% of viewport height on desktop
@@ -404,10 +400,6 @@ function calculateOptimalFontSize(textElement, containerElement) {
     textElement.style.transition = 'font-size 0.3s ease, line-height 0.3s ease';
     textElement.style.fontSize = `${optimalSize}px`;
     textElement.style.lineHeight = `${optimalSize * lineHeightRatio}px`;
-    
-    // #region agent log
-    fetch('http://127.0.0.1:7246/ingest/d523df54-e0a0-4008-803e-3a9b024a6fd2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'text-centered.js:calculateOptimalFontSize',message:'Font size applied',data:{optimalSize,lineHeight:optimalSize * lineHeightRatio,inlineFontSize:textElement.style.fontSize,inlineLineHeight:textElement.style.lineHeight,finalComputedFontSize:getComputedStyle(textElement).fontSize,finalComputedMaxWidth:getComputedStyle(textElement).maxWidth},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'A'})}).catch(()=>{});
-    // #endregion
 }
 
 /**
@@ -421,10 +413,6 @@ function initTextCenteredScrollable(element) {
     const wrapperElement = element.querySelector('.c-intro__text-wrapper');
     
     if (!textElement || !wrapperElement || !textElement.textContent.trim()) return;
-    
-    // #region agent log
-    fetch('http://127.0.0.1:7246/ingest/d523df54-e0a0-4008-803e-3a9b024a6fd2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'text-centered.js:initTextCenteredScrollable',message:'Scrollable setup started',data:{textHeight:textElement.scrollHeight,wrapperWidth:wrapperElement.offsetWidth,computedTextAlign:getComputedStyle(textElement).textAlign,computedMaxWidth:getComputedStyle(textElement).maxWidth,computedWordBreak:getComputedStyle(textElement).wordBreak,isDesktop:window.innerWidth >= 768},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'D'})}).catch(()=>{});
-    // #endregion
     
     const checkAndSetupScroll = () => {
         requestAnimationFrame(() => {

@@ -168,9 +168,15 @@ function initGalleryVerticalSlider(element) {
         thumbnailWrappers.forEach((wrapper, index) => {
             if (index === activeSlide) {
                 wrapper.classList.add('active');
-                // Scroll thumbnail into view
+                // Centrar la miniatura activa solo dentro del strip (sin mover el scroll de la página)
                 if (thumbnailsWrapper) {
-                    wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    const strip = thumbnailsWrapper;
+                    const thumb = wrapper;
+                    const thumbLeft = thumb.offsetLeft;
+                    const thumbWidth = thumb.offsetWidth;
+                    const stripWidth = strip.offsetWidth;
+                    const scrollLeft = thumbLeft - (stripWidth / 2) + (thumbWidth / 2);
+                    strip.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
                 }
             } else {
                 wrapper.classList.remove('active');

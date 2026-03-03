@@ -95,42 +95,37 @@ export function initHorizontalAnimations() {
         return;
     }
     
-    // Listen for section changes
+    // Listen for section changes (activeSection es .section-screen; las animaciones están en su contenido)
     window.addEventListener('sectionChanged', (e) => {
         const currentIndex = e.detail.index;
         const sections = window.__horizontalScrollNonParallaxSections || [];
-        
-        if (currentIndex >= 0 && currentIndex < sections.length) {
-            const activeSection = sections[currentIndex];
-            
-            // Trigger animations for the active section
-            if (activeSection && activeSection.__horizontalAnimations) {
-                activeSection.__horizontalAnimations.forEach(anim => {
-                    if (!anim.played) {
-                        anim.timeline.play();
-                        anim.played = true;
-                    }
-                });
-            }
+        if (currentIndex < 0 || currentIndex >= sections.length) return;
+        const activeScreen = sections[currentIndex];
+        const contentEl = activeScreen && activeScreen.querySelector('.section-screen__content > *');
+        if (contentEl && contentEl.__horizontalAnimations) {
+            contentEl.__horizontalAnimations.forEach(anim => {
+                if (!anim.played) {
+                    anim.timeline.play();
+                    anim.played = true;
+                }
+            });
         }
     });
-    
-    // Also trigger animations for sections that are already visible on load
+
+    // Al cargar, disparar animaciones de la sección actual
     setTimeout(() => {
-        const currentIndex = window.__currentSectionIndex || 0;
+        const currentIndex = window.__currentSectionIndex ?? 0;
         const sections = window.__horizontalScrollNonParallaxSections || [];
-        
-        if (currentIndex >= 0 && currentIndex < sections.length) {
-            const activeSection = sections[currentIndex];
-            
-            if (activeSection && activeSection.__horizontalAnimations) {
-                activeSection.__horizontalAnimations.forEach(anim => {
-                    if (!anim.played) {
-                        anim.timeline.play();
-                        anim.played = true;
-                    }
-                });
-            }
+        if (currentIndex < 0 || currentIndex >= sections.length) return;
+        const activeScreen = sections[currentIndex];
+        const contentEl = activeScreen && activeScreen.querySelector('.section-screen__content > *');
+        if (contentEl && contentEl.__horizontalAnimations) {
+            contentEl.__horizontalAnimations.forEach(anim => {
+                if (!anim.played) {
+                    anim.timeline.play();
+                    anim.played = true;
+                }
+            });
         }
     }, 500);
 }

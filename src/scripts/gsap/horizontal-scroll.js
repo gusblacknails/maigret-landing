@@ -105,11 +105,12 @@ function initSnapHorizontal(main) {
         return;
     }
 
-        // Get all sections/components in order (direct children of main)
+        // Get all sections in order (direct children of main: .section-screen wrappers or legacy section/component nodes)
         const sections = Array.from(main.children).filter(child => {
             const tag = child.tagName.toLowerCase();
-            return tag === 'section' || 
-                   child.classList.contains('c-hero') || 
+            return child.classList.contains('section-screen') ||
+                   tag === 'section' ||
+                   child.classList.contains('c-hero') ||
                    child.classList.contains('c-intro') ||
                    child.classList.contains('c-gallery-section') ||
                    child.classList.contains('c-quotes') ||
@@ -123,7 +124,6 @@ function initSnapHorizontal(main) {
                    child.classList.contains('c-text-and-image-two') ||
                    child.classList.contains('c-image') ||
                    child.classList.contains('c-ticketing') ||
-                   child.classList.contains('c-parallax') ||
                    child.classList.contains('c-sorteo') ||
                    child.classList.contains('c-custom');
         });
@@ -133,9 +133,8 @@ function initSnapHorizontal(main) {
             return;
         }
 
-    // Filter out parallax components from width calculation (they don't take space)
-    const nonParallaxSections = sections.filter(section => !section.classList.contains('c-parallax'));
-    const gapSize = 100; // Gap between sections in pixels
+    const nonParallaxSections = sections;
+    const gapSize = 0; // Sin gap; fondos por sección
     const totalWidth = (nonParallaxSections.length * window.innerWidth) + ((nonParallaxSections.length - 1) * gapSize);
 
         // Calculate scroll height based on number of non-parallax sections
@@ -168,9 +167,6 @@ function initSnapHorizontal(main) {
     
     // Function to scroll to a specific section
     function scrollToSectionIndex(index) {
-        // Filter out parallax sections for navigation
-        const nonParallaxSections = sections.filter(section => !section.classList.contains('c-parallax'));
-        
         if (isScrolling || index < 0 || index >= nonParallaxSections.length) {
             return;
         }
@@ -178,11 +174,9 @@ function initSnapHorizontal(main) {
         isScrolling = true;
         currentSectionIndex = index;
         
-        // Store current section index globally for parallax components
         window.__currentSectionIndex = index;
-        currentSectionIndex = index; // Update local variable
+        currentSectionIndex = index;
         
-        const gapSize = 100;
         const targetX = -(index * window.innerWidth) - (index * gapSize);
         
         gsap.to(main, {
@@ -230,32 +224,32 @@ function initSnapHorizontal(main) {
     
     const scrollIndicator = createScrollIndicator();
 
-    // Flecha siguiente sección: se añade a .c-menu para que no la mueva el parallax; se posiciona con top en px para quedar abajo a la derecha del viewport
+    // Flecha siguiente: se añade al body para que position:fixed sea siempre respecto al viewport (no a .c-menu ni a main)
     function createNextSectionArrow() {
         const existingBtn = document.querySelector('.horizontal-scroll-next-arrow');
         if (existingBtn) existingBtn.remove();
         if (!nonParallaxSections.length) return null;
-        const menuEl = document.querySelector('.c-menu');
-        if (!menuEl) return null;
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'horizontal-scroll-next-arrow';
         btn.setAttribute('aria-label', 'Siguiente sección');
         const gap = 24;
         function positionArrow() {
+            const cw = document.documentElement.clientWidth;
             btn.style.setProperty('position', 'fixed', 'important');
             btn.style.setProperty('top', `${window.innerHeight - 52 - gap}px`, 'important');
-            btn.style.setProperty('right', `${gap}px`, 'important');
+            // Mismo margen que la flecha izquierda: 24px del borde del área de contenido (clientWidth), sin salto al cargar el video
+            btn.style.setProperty('left', `${cw - 52 - gap}px`, 'important');
+            btn.style.setProperty('right', 'auto', 'important');
             btn.style.setProperty('bottom', 'auto', 'important');
-            btn.style.setProperty('left', 'auto', 'important');
             btn.style.setProperty('z-index', '99999', 'important');
             btn.style.pointerEvents = 'auto';
         }
         positionArrow();
         window.addEventListener('resize', positionArrow);
-        window.addEventListener('load', positionArrow); // Re-posicionar tras cargar video/recursos
+        window.addEventListener('load', positionArrow);
         btn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        menuEl.appendChild(btn);
+        document.body.appendChild(btn);
         btn.addEventListener('click', () => {
             const idx = window.__currentSectionIndex ?? 0;
             if (idx < nonParallaxSections.length - 1) {
@@ -266,13 +260,11 @@ function initSnapHorizontal(main) {
     }
     const nextArrow = createNextSectionArrow();
 
-    // Flecha anterior (esquina inferior izquierda)
+    // Flecha anterior (esquina inferior izquierda); en body para que fixed sea respecto al viewport
     function createPrevSectionArrow() {
         const existingBtn = document.querySelector('.horizontal-scroll-prev-arrow');
         if (existingBtn) existingBtn.remove();
         if (!nonParallaxSections.length) return null;
-        const menuEl = document.querySelector('.c-menu');
-        if (!menuEl) return null;
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'horizontal-scroll-prev-arrow';
@@ -289,9 +281,9 @@ function initSnapHorizontal(main) {
         }
         positionArrow();
         window.addEventListener('resize', positionArrow);
-        window.addEventListener('load', positionArrow); // Re-posicionar tras cargar video/recursos
+        window.addEventListener('load', positionArrow);
         btn.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        menuEl.appendChild(btn);
+        document.body.appendChild(btn);
         btn.addEventListener('click', () => {
             const idx = window.__currentSectionIndex ?? 0;
             if (idx > 0) {
@@ -429,56 +421,74 @@ function initSnapHorizontal(main) {
     }, { passive: true });
     
     try {
-        // Use ScrollTrigger to pin the body but handle section navigation manually
-        // Wait for DOM to be fully ready using requestAnimationFrame
+        // Use ScrollTrigger to pin the body but handle section navigation manually.
+        // Run only after load so DOM is stable and no script (e.g. browser-sync) is mid-injection.
+        let createScrollTriggerRetries = 0;
+        const maxRetries = 3;
         const createScrollTrigger = () => {
-            // Verify all required elements exist before creating ScrollTrigger
             const body = document.body;
             const html = document.documentElement;
-            
             if (!body || !html || !ScrollTrigger) {
-                // Retry if DOM not ready
-                requestAnimationFrame(createScrollTrigger);
+                if (createScrollTriggerRetries < maxRetries) {
+                    createScrollTriggerRetries += 1;
+                    requestAnimationFrame(createScrollTrigger);
+                }
                 return;
             }
-            
-            // Verify body has a parent node (is attached to DOM)
-            if (!body.parentNode || !body.isConnected) {
-                // Retry if body not properly attached
-                requestAnimationFrame(createScrollTrigger);
+            // ScrollTrigger pin inserta un spacer en body.parentNode; debe existir y tener appendChild
+            const parent = body.parentNode;
+            if (!parent || !body.isConnected || typeof parent.appendChild !== 'function') {
+                if (createScrollTriggerRetries < maxRetries) {
+                    createScrollTriggerRetries += 1;
+                    requestAnimationFrame(createScrollTrigger);
+                }
                 return;
             }
-            
-            // Additional check: ensure body has style property (fully initialized)
             if (!body.style) {
-                requestAnimationFrame(createScrollTrigger);
+                if (createScrollTriggerRetries < maxRetries) {
+                    createScrollTriggerRetries += 1;
+                    requestAnimationFrame(createScrollTrigger);
+                }
                 return;
             }
-            
+            // Usar un wrapper como trigger para que el pin spacer se inserte en body, no en
+            // documentElement (evita appendChild sobre null en entornos con inyección de scripts).
+            let pinWrapper = document.getElementById('horizontal-scroll-pin-wrapper');
+            if (!pinWrapper) {
+                pinWrapper = document.createElement('div');
+                pinWrapper.id = 'horizontal-scroll-pin-wrapper';
+                pinWrapper.style.cssText = 'min-height:100vh;';
+                while (body.firstChild) pinWrapper.appendChild(body.firstChild);
+                body.appendChild(pinWrapper);
+            }
             try {
                 scrollTriggerInstance = ScrollTrigger.create({
-                    trigger: body,
+                    trigger: pinWrapper,
                     start: "top top",
                     end: () => `+=${scrollHeight}`,
                     pin: true,
                     pinSpacing: true,
-                    invalidateOnRefresh: true
+                    invalidateOnRefresh: true,
+                    markers: false
                 });
             } catch (error) {
                 console.warn('Horizontal scroll: Error creating ScrollTrigger', error);
-                // If creation fails, retry once after a delay
-                if (!scrollTriggerInstance) {
-                    setTimeout(() => {
-                        requestAnimationFrame(createScrollTrigger);
-                    }, 500);
+                if (!scrollTriggerInstance && createScrollTriggerRetries < maxRetries) {
+                    createScrollTriggerRetries += 1;
+                    setTimeout(() => requestAnimationFrame(createScrollTrigger), 500);
                 }
             }
         };
-        
-        // Start with a small delay to ensure DOM is ready
-        setTimeout(() => {
-            requestAnimationFrame(createScrollTrigger);
-        }, 300);
+        const runCreateScrollTrigger = () => {
+            setTimeout(() => {
+                requestAnimationFrame(() => requestAnimationFrame(createScrollTrigger));
+            }, 400);
+        };
+        if (document.readyState === 'complete') {
+            runCreateScrollTrigger();
+        } else {
+            window.addEventListener('load', runCreateScrollTrigger, { once: true });
+        }
         
         // Store navigation function globally for menu links
         // Wrap it to also update the scroll indicator
@@ -520,21 +530,16 @@ export function scrollToSection(target) {
 
     // If using ScrollTrigger snap mode
     if (window.__horizontalScrollNonParallaxSections && window.__scrollToSectionIndex) {
-        // Use non-parallax sections for navigation
         const nonParallaxSections = window.__horizontalScrollNonParallaxSections;
-        
-        // Find the element in non-parallax sections
-        let index = nonParallaxSections.indexOf(element);
-        
-        // If not found, it might be a parallax component or nested element
-        // Try to find the parent section
-        if (index === -1) {
-            const parentSection = element.closest('section, .c-hero, .c-intro, .c-gallery-section, .c-quotes, .c-video, .c-details, .c-call-to-action, .c-logos, .c-share, .c-follow-us, .c-text-and-image-one, .c-text-and-image-two, .c-image, .c-ticketing, .c-sorteo, .c-custom');
-            if (parentSection && !parentSection.classList.contains('c-parallax')) {
-                index = nonParallaxSections.indexOf(parentSection);
-            }
+        const main = document.querySelector('.c-main');
+        let index = -1;
+        const screen = element.closest('.section-screen');
+        if (screen && nonParallaxSections.indexOf(screen) !== -1) {
+            index = nonParallaxSections.indexOf(screen);
+        } else if (main && main.contains(element)) {
+            const screens = Array.from(main.children).filter(el => el.classList.contains('section-screen'));
+            index = screens.findIndex(s => s.contains(element));
         }
-        
         if (index !== -1) {
             window.__scrollToSectionIndex(index);
             return;

@@ -2,11 +2,10 @@
  * Scroll Position
 **/
 
-
 function scrollPosition () {
 
     const body = document.querySelector('body');
-    
+
     // Skip scroll position tracking if horizontal scroll is active
     if (body.classList.contains('horizontal-scroll-active')) {
         // In horizontal mode, navbar should always have background

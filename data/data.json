@@ -70,7 +70,7 @@
 
             {
                 "type": "hero",
-                "variant": "parallax-smooth",
+                "variant": "",
                 "data": {
                     "id": "hero",
                     "image": {
@@ -96,17 +96,8 @@
                 "data": {
                     "id": "intro",
                     "title": "Sinopsis",
-                    "text": "El comisario Maigret, convocado urgentemente al Quai d'Orsay, acude allí con el comandante Janvier. Encuentran a Mademoiselle Larrieu en estado de shock. Esa misma mañana, descubrió el cuerpo acribillado a balazos de Monsieur Berthier-Lagès, un renombrado exembajador, a quien había servido durante 46 años. En el apartamento de la víctima, Maigret y Janvier se hacen con miles de cartas. El diplomático mantenía correspondencia romántica durante cincuenta años con la princesa de Vuynes, cuyo esposo, por una extraña coincidencia, acaba de fallecer. Al enfrentarse a miembros de ambas familias y al sospechoso silencio de Mademoiselle Larrieu, Maigret se encuentra con una sorpresa tras otra."
-                }
-            },
-            
-           
-            {
-                "type":"parallax",
-                "data": {
-                    "id": "parallax",
-                    "image": "assets/images/_MAI0490 Large.jpeg"
-
+                    "text": "El comisario Maigret, convocado urgentemente al Quai d'Orsay, acude allí con el comandante Janvier. Encuentran a Mademoiselle Larrieu en estado de shock. Esa misma mañana, descubrió el cuerpo acribillado a balazos de Monsieur Berthier-Lagès, un renombrado exembajador, a quien había servido durante 46 años. En el apartamento de la víctima, Maigret y Janvier se hacen con miles de cartas. El diplomático mantenía correspondencia romántica durante cincuenta años con la princesa de Vuynes, cuyo esposo, por una extraña coincidencia, acaba de fallecer. Al enfrentarse a miembros de ambas familias y al sospechoso silencio de Mademoiselle Larrieu, Maigret se encuentra con una sorpresa tras otra.",
+                    "backgroundImage": "images/_MAI0490 Large.jpeg"
                 }
             },
 
@@ -117,7 +108,8 @@
                     "title": "Trailer",
                     "id": "trailer",
                     "youtubeId": "VwVnLF9r3uk",
-                    "poster": "/assets/images/poster_trailer_maigret.png"
+                    "poster": "/assets/images/poster_trailer_maigret.png",
+                    "backgroundImage": "images/_MAI1279 Large.jpeg"
                 }
             },            
 
@@ -128,6 +120,7 @@
                 "data": {
                     "id": "movie-details",
                     "poster": "/assets/images/Maigret_Poster Esp_LR Large.jpeg",
+                    "backgroundImage": "images/_MAI0676 Large.jpeg",
                     "specs": [
                         {
                             "label": "Título Original",
@@ -172,22 +165,14 @@
                     ]
                 }
             },
-            {
-                "type":"parallax",
-                "data": {
-                    "id": "parallax",
-                    "image": "assets/images/_MAI1279 Large.jpeg"
 
-                }
-            },
-            
-            
             {
                 "type": "gallery",
                 "variant": "1",
                 "data": {
                     "id": "galeria",
                     "title": "Galería",
+                    "backgroundImage": "images/_MAI1660b Large.jpeg",
                     "images": [
                         {
                             "image": "assets/images/_MAI0490 Large.jpeg",
@@ -216,6 +201,14 @@
                         {
                             "image": "assets/images/_MAI7184 Large.jpeg",
                             "title": "Maigret and the Dead Lover - Imagen 7"
+                        },
+                        {
+                            "image": "assets/images/tmdb_backdrop_1398486_0.jpg",
+                            "title": "Maigret and the Dead Lover - Imagen 7"
+                        },
+                        {
+                            "image": "assets/images/tmdb_backdrop_1398486_4.jpg",
+                            "title": "Maigret and the Dead Lover - Imagen 7"
                         }
                     ]
                 }
@@ -227,7 +220,8 @@
                 "data": {
                     "id": "opiniones", 
                     "title": "Críticas", 
-                    "background": null ,
+                    "background": null,
+                    "backgroundImage": "images/_MAI1815 Large.jpeg",
                     "quotes": [
                         {
                             "image": null, 
@@ -295,6 +289,7 @@
                 "type": "logosAndShare",
                 "data": {
                     "id": "distribucion-y-comparte",
+                    "backgroundImage": "images/_MAI2448 Large.jpeg",
                     "logos": {
                         "title": "Distribuido por",
                         "logos": [

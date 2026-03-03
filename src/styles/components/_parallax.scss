@@ -89,7 +89,7 @@ body.horizontal-scroll-active {
   // Menu should be above parallax too
   .c-menu {
     z-index: 1000 !important;
-    background: var(--color-bg-primary) !important;
+    background-color: var(--color-bg-primary) !important;
   }
 
 }

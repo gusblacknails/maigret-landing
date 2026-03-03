@@ -11,16 +11,10 @@
   left: 0;
   z-index: 1000;
   
-  background: var(--color-bg-primary);
+  background-color: var(--color-bg-primary);
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+  background-repeat: repeat;
   transition: all var(--transition-base);
-
-  // Page at top - fondo completamente transparente
-  .--page-at-top & {
-    background: transparent;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
 
   @include breakpoint(lg) {
     z-index: var(--zindex-menu);
@@ -123,34 +117,32 @@
 
 .c-menu__toggle {
   all: unset;
-  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   position: fixed;
   z-index: 1100 !important;
-  top: var(--space-12);
+  top: calc(var(--space-64) / 2);
   right: var(--space-12);
-  
   width: var(--space-40);
   height: var(--space-40);
-  
-  border-radius: 999px;
-  background-color: var(--color-accent);
-  box-shadow: 0px 0px 8px rgba(var(--color-black), 0.25);
-  
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
   cursor: pointer;
-  overflow: hidden;
-  
+  overflow: visible;
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: hidden; // Will be made visible by GSAP on load
-  
   @include breakpoint(lg) {
     display: none;
   }
-  
   &:focus-visible {
-    outline: 3px solid rgba(var(--color-white), 0.5);
-    outline-offset: 2px;
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
   }
 }
 
@@ -212,6 +204,8 @@
   justify-content: space-between;
 
   background-color: var(--color-bg-primary);
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+  background-repeat: repeat;
   box-shadow: 0px 0px 8px rgba( var(--color-black), 0);
   // Transition handled by GSAP, but keep for fallback
   transition: right 0.5s ease-in-out;
@@ -268,7 +262,8 @@
 
 
 .c-menu__mobile-logo {
-  height: var(--space-40);
+  height: var(--space-64);
+  max-width: 75%;
   display: flex;
   align-items: center;
   opacity: 0;
@@ -276,10 +271,9 @@
   z-index: 10;
 
   img {
-    height: 137%;
+    height: 100%;
+    max-height: var(--space-64);
     width: 100%;
-    max-width: 75%;
-
     object-fit: contain;
     object-position: center left;
   }
@@ -333,15 +327,22 @@
   color: white;
   text-decoration: none;
 
-  // Initial state for animation on mobile
-  opacity: 0;
-  transform: translateX(30px);
-  visibility: hidden;
-
+  // En desktop: ocultos hasta que cargue el logo del hero (body.hero-logo-not-loaded), luego visibles
   @include breakpoint(lg) {
-    opacity: 1;
-    transform: none;
-    visibility: visible;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    body.hero-logo-not-loaded & {
+      visibility: hidden !important;
+      opacity: 0 !important;
+    }
+  }
+
+  // Estado inicial para animación solo en móvil
+  @media (max-width: 1023px) {
+    opacity: 0;
+    transform: translateX(30px);
+    visibility: hidden;
   }
 
   transition: all var(--transition-base);

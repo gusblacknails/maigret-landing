@@ -12,7 +12,6 @@ import { initVideo } from './video.js';
 import { initDetails } from './details.js';
 import { initQuotes } from './quotes.js';
 import { initTicketing } from './ticketing.js';
-import { initParallax } from './parallax.js';
 import { initCallToAction } from './call-to-action.js';
 import { initLogos } from './logos.js';
 import { initShare } from './share.js';
@@ -22,8 +21,22 @@ import { initImage } from './image.js';
 import { initFollowUs } from './follow-us.js';
 import { initSorteo } from './sorteo.js';
 import { initCustom } from './custom.js';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from '../gsap-init.js';
 import { initHorizontalAnimations } from './horizontal-animations.js';
+
+function initSectionBackgrounds() {
+    document.querySelectorAll('.section-bg').forEach((el) => {
+        gsap.set(el, { scale: 1 });
+        gsap.to(el, {
+            scale: 1.06,
+            duration: 28,
+            ease: 'none',
+            repeat: -1,
+            yoyo: true
+        });
+    });
+}
 
 /**
  * Initialize all GSAP modules based on data-gsap-variant attributes
@@ -100,11 +113,8 @@ export function initGSAPModules() {
         initTicketing(element, variant);
     });
 
-    // Parallax
-    document.querySelectorAll('.parallax-window').forEach(element => {
-        const variant = element.getAttribute('data-gsap-variant') || 'default';
-        initParallax(element, variant);
-    });
+    // Section backgrounds: movimiento muy lento (Ken Burns sutil) para no parecer estático
+    initSectionBackgrounds();
 
     // Call to Action
     document.querySelectorAll('.c-call-to-action').forEach(element => {

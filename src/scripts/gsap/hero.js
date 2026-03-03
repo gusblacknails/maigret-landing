@@ -227,6 +227,62 @@ function initHeroCinematicFade(element) {
         }, "-=0.8");
 }
 
+// Ocultar contenido del hero en cuanto se ejecuta para que el logo no se vea → desaparezca → reaparezca al animar
+function setHeroInitialState(element) {
+    const info = element.querySelector('.c-hero__info');
+    const titleWrapper = element.querySelector('.heroTitleWrapper');
+    const buttons = element.querySelectorAll('.c-hero__button');
+    const nodes = [info, titleWrapper, ...buttons].filter(Boolean);
+    if (nodes.length) gsap.set(nodes, { opacity: 0 });
+}
+
+function showNavButtons() {
+    if (typeof document === 'undefined') return;
+    if (!document.body) {
+        setTimeout(showNavButtons, 100);
+        return;
+    }
+    const body = document.body;
+    if (!body.classList.contains('hero-logo-not-loaded')) return;
+    const anchors = document.querySelectorAll('.c-menu__nav .c-menu__anchor');
+    body.classList.remove('hero-logo-not-loaded');
+    const styleEl = document.getElementById('hero-logo-nav-hide');
+    if (styleEl) styleEl.remove();
+    anchors.forEach((el) => {
+        el.style.visibility = '';
+        el.style.opacity = '';
+    });
+}
+
+function setupNavShowOnFirstInteraction() {
+    if (typeof document === 'undefined' || !document.body) return;
+    const once = () => {
+        if (!document.body) return;
+        if (document.body.classList.contains('hero-logo-not-loaded')) {
+            showNavButtons();
+        }
+        document.removeEventListener('click', once);
+        document.removeEventListener('keydown', once);
+    };
+    document.addEventListener('click', once, { once: true, capture: true });
+    document.addEventListener('keydown', once, { once: true, capture: true });
+}
+
+// Sin img/video en hero: mostrar nav ya (o cuando cargue el logo)
+function revealNavWhenHeroLogoReady(element) {
+    const heroLogoImg = element.querySelector('.heroTitleWrapper img');
+    if (typeof document === 'undefined') return;
+    if (!heroLogoImg) {
+        showNavButtons();
+        return;
+    }
+    if (heroLogoImg.complete) {
+        showNavButtons();
+    } else {
+        heroLogoImg.addEventListener('load', showNavButtons);
+    }
+}
+
 // Main initialization function
 export function initHero(element, variant = 'default') {
     const variants = {
@@ -238,13 +294,28 @@ export function initHero(element, variant = 'default') {
     };
 
     const initFn = variants[variant] || variants['default'];
-    
-    // Wait for images/videos to load
-    if (element.querySelector('video') || element.querySelector('img')) {
-        window.addEventListener('load', () => {
+    const hasMedia = !!(element.querySelector('video') || element.querySelector('img'));
+
+    if (hasMedia) {
+        setHeroInitialState(element);
+        const runHeroAndShowNav = () => {
             initFn(element);
-        });
+        };
+        if (document.readyState === 'complete') {
+            runHeroAndShowNav();
+        } else {
+            window.addEventListener('load', runHeroAndShowNav);
+        }
+        setTimeout(showNavButtons, 2200);
+        const backupShowNav = () => setTimeout(showNavButtons, 2500);
+        if (document.readyState === 'complete') {
+            backupShowNav();
+        } else {
+            window.addEventListener('load', backupShowNav, { once: true });
+        }
+        setupNavShowOnFirstInteraction();
     } else {
+        revealNavWhenHeroLogoReady(element);
         initFn(element);
     }
 }

@@ -19,8 +19,20 @@ import { initHorizontalScroll } from './gsap/horizontal-scroll.js';
 
 
 function autorun(){
+    const body = document.body;
+    // Ocultar botones del navbar en desktop hasta que cargue el logo del hero (clase + regla inyectada)
+    const isDesktop = body && window.matchMedia('(min-width: 1024px)').matches;
+    const isHorizontal = body && body.classList.contains('horizontal-scroll-active');
+    if (body && isHorizontal && isDesktop) {
+        body.classList.add('hero-logo-not-loaded');
+        const style = document.createElement('style');
+        style.id = 'hero-logo-nav-hide';
+        style.textContent = '@media (min-width:1024px){body.hero-logo-not-loaded .c-menu__nav .c-menu__anchor{visibility:hidden!important;opacity:0!important}}';
+        (document.head || document.documentElement).appendChild(style);
+    }
+
     // Prevent parallax.js library from initializing in horizontal mode
-    if (document.body && document.body.classList.contains('horizontal-scroll-active')) {
+    if (body && body.classList.contains('horizontal-scroll-active')) {
         // Remove data-parallax attributes to prevent external library from initializing
         document.querySelectorAll('[data-parallax]').forEach(el => {
             el.removeAttribute('data-parallax');
@@ -31,7 +43,6 @@ function autorun(){
     initGSAP();
     
     // Check if horizontal scroll mode is active
-    const body = document.body;
     const isHorizontalActive = body && body.classList.contains('horizontal-scroll-active');
     
     if (isHorizontalActive) {

@@ -221,8 +221,14 @@
     }
         }
 
-    #trailer, footer{
-        background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+    #trailer, #movie-details, .c-logos-and-share, .c-menu, .c-menu__nav, footer{
+        background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png") !important;
+        background-repeat: repeat;
+    }
+    @media (min-width: 1024px) {
+        .c-menu__nav {
+            background-image: none !important;
+        }
     }
     .c-hero__title, .c-intro__title, .c-text-centered__title, .c-text-and-image-one__title, .c-text-and-image-two__title, .c-text-and-image-one__subtitle{
         font-family: var(--font-display);
@@ -246,8 +252,8 @@
         background-color: var(--color-base) !important;
     }
     .c-menu__toggle {
-        background-color: transparent !important;
-        border: 2px solid var(--color-base) !important;
+        background: none !important;
+        border: none !important;
     }
     .c-logos__title{
         font-family: var(--font-display);
@@ -277,6 +283,12 @@
  
     .c-menu__anchor:hover {
         color: var(--color-accent) !important;
+    }
+    @media (min-width: 1024px) {
+        body.hero-logo-not-loaded .c-menu__nav .c-menu__anchor {
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
     }
     @media(min-width:768px){
         .c-ticketing__wrapper{
@@ -338,7 +350,7 @@
     
 </style>
 
-<body {% if data.config.scrollMode === "horizontal" or data.config.scrollMode === "horizontal-snap" %}class="horizontal-scroll-active" data-scroll-mode="{{ data.config.scrollMode }}"{% endif %}>
+<body {% if data.config.scrollMode === "horizontal" or data.config.scrollMode === "horizontal-snap" %}class="horizontal-scroll-active hero-logo-not-loaded" data-scroll-mode="{{ data.config.scrollMode }}"{% endif %}>
 
 
     {# Menu #}
@@ -372,7 +384,6 @@
         {% import "components/_text-centered.html" as textCentered %}
         {% import "components/_ticketing.html" as ticketing %}
         {% import "components/_video.html" as video %}
-        {% import "components/_parallax.html" as parallax %}
         {% import "components/_sorteo.html" as sorteo %}
         {% import "components/_custom.html" as custom %}
 
@@ -381,7 +392,11 @@
         ##}
 
         {% for section in data.sections %}
-
+            <div class="section-screen{% if section.type === 'textCentered' and section.data.id === 'intro' %} section-screen--intro{% endif %}" {% if section.data.backgroundImage %}style="--section-bg-image: url('{{ data.basePath }}assets/{{ section.data.backgroundImage }}')"{% endif %}>
+            {% if section.data.backgroundImage %}
+                <div class="section-bg"></div>
+            {% endif %}
+            <div class="section-screen__content">
             {% if section.type === "callToAction" %}
                 {{ callToAction.component(section.data, section.variant) }}
 
@@ -429,15 +444,12 @@
 
             {% elif section.type === "ticketing" %}
                 {{ ticketing.component(section.data, data.site, section.variant) }}
-            {% elif section.type === "parallax" %}
-                {{ parallax.component(section.data, section.variant) }}
             {% elif section.type === "custom" %}
                 {{ custom.component(section.data, data.site, section.variant) }}
 
-
-
             {% endif %}
-
+            </div>
+            </div>
         {% endfor %}
 
     </main>
