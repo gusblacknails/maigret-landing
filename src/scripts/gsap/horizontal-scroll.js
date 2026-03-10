@@ -203,26 +203,10 @@ function initSnapHorizontal(main) {
     // Initialize current section index
     window.__currentSectionIndex = 0;
     
-    // Create and initialize horizontal scrollbar indicator
-    function createScrollIndicator() {
-        // Remove existing indicator if any
-        const existing = document.querySelector('.horizontal-scroll-indicator');
-        if (existing) existing.remove();
-        
-        if (!document.body) {
-            return null;
-        }
-        
-        const indicator = document.createElement('div');
-        indicator.className = 'horizontal-scroll-indicator';
-        // Force inline styles to ensure visibility
-        indicator.style.cssText = 'position:fixed !important;bottom:0 !important;left:0 !important;height:8px !important;background:rgba(23,97,127,0.8) !important;z-index:10000 !important;pointer-events:none !important;display:block !important;visibility:visible !important;opacity:1 !important;border-radius:4px 4px 0 0 !important;';
-        document.body.appendChild(indicator);
-        
-        return indicator;
-    }
-    
-    const scrollIndicator = createScrollIndicator();
+    // Remove/hide custom scroll indicator bar
+    const existingIndicator = document.querySelector('.horizontal-scroll-indicator');
+    if (existingIndicator) existingIndicator.remove();
+    const scrollIndicator = null;
 
     // Flecha siguiente: se añade al body para que position:fixed sea siempre respecto al viewport (no a .c-menu ni a main)
     function createNextSectionArrow() {
@@ -419,6 +403,51 @@ function initSnapHorizontal(main) {
             }
         }
     }, { passive: true });
+
+    // Keyboard navigation between sections
+    // Arrow Right/Down => next section, Arrow Left/Up => previous section
+    const existingKeydownHandler = window.__horizontalScrollKeydownHandler;
+    if (existingKeydownHandler) {
+        window.removeEventListener('keydown', existingKeydownHandler);
+    }
+
+    const handleHorizontalKeydown = (e) => {
+        if (isScrolling) return;
+
+        const isArrowKey = (
+            e.key === 'ArrowRight' ||
+            e.key === 'ArrowDown' ||
+            e.key === 'ArrowLeft' ||
+            e.key === 'ArrowUp'
+        );
+        if (!isArrowKey) return;
+
+        // Don't hijack keyboard when user is typing in inputs/editable content
+        const target = e.target;
+        const tag = target?.tagName;
+        if (
+            target?.isContentEditable ||
+            tag === 'INPUT' ||
+            tag === 'TEXTAREA' ||
+            tag === 'SELECT'
+        ) {
+            return;
+        }
+
+        e.preventDefault();
+
+        if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && currentSectionIndex < nonParallaxSections.length - 1) {
+            scrollToSectionIndex(currentSectionIndex + 1);
+            return;
+        }
+
+        if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp') && currentSectionIndex > 0) {
+            scrollToSectionIndex(currentSectionIndex - 1);
+        }
+    };
+
+    window.__horizontalScrollKeydownHandler = handleHorizontalKeydown;
+    window.addEventListener('keydown', handleHorizontalKeydown, { passive: false });
     
     try {
         // Use ScrollTrigger to pin the body but handle section navigation manually.
@@ -504,6 +533,20 @@ function initSnapHorizontal(main) {
     // Store sections for navigation (both all and non-parallax)
     window.__horizontalScrollSections = sections;
     window.__horizontalScrollNonParallaxSections = nonParallaxSections;
+
+    // Hero and other internal hash links: navigate to section (menu links handled in menu.js)
+    const handleInternalLink = (e) => {
+        const a = e.target?.closest?.('a[href^="#"]');
+        if (!a || a.getAttribute('href') === '#') return;
+        if (a.closest('.c-menu__nav')) return; // menu handles its own links (and closes menu)
+        const id = a.getAttribute('href').slice(1);
+        if (!id) return;
+        const targetEl = document.getElementById(id);
+        if (!targetEl) return;
+        e.preventDefault();
+        scrollToSection(targetEl);
+    };
+    document.addEventListener('click', handleInternalLink, true);
 
     console.log('Horizontal scroll (snap) initialized with', nonParallaxSections.length, 'non-parallax sections');
 }

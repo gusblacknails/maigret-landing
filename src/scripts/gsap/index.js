@@ -27,6 +27,11 @@ import { initHorizontalAnimations } from './horizontal-animations.js';
 
 function initSectionBackgrounds() {
     document.querySelectorAll('.section-bg').forEach((el) => {
+        // No animar el fondo de la sección tráiler (evitar overlay visible)
+        const section = el.closest('.section-screen');
+        if (section?.classList.contains('section-screen--video') || section?.querySelector('#trailer')) {
+            return;
+        }
         gsap.set(el, { scale: 1 });
         gsap.to(el, {
             scale: 1.06,

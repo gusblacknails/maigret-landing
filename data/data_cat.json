@@ -1,29 +1,24 @@
 {
   "data": {
     "basePath": "/",
-    
     "site": {
-      "movieName": "Maigret and the Dead Lover",
+      "movieName": "Maigret i la mort de l'ambaixador",
       "url": "maigretandthedeadlover.com",
-      "description": "L'icònic comissari Jules Maigret torna a la gran pantalla en aquesta adaptació de la novel·la de Georges Simenon. Denis Podalydès interpreta el llegendari inspector en un thriller policíac que investiga l'assassinat d'un antic ambaixador francès.",
+      "description": "Quan un prestigiós ambaixador apareix brutalment assassinat, el comissari Maigret és cridat d'urgència per desentranyar el misteri. Entre cartes secretes, passions ocultes i silencis sospitosos, res és el que sembla.",
       "image": "/assets/images/Maigret_Poster Esp_LR Large.jpeg"
     },
-
-
     "config": {
       "googleFontsURL": "",
-      "fontBase": "Aroxima, sans-serif",
-      "fontDisplay": "Aroxima, sans-serif",
+      "fontBase": "Aroxima",
+      "fontDisplay": "Aroxima",
       "colorBase": "#353230",
       "colorAccent": "#CC222A",
       "colorBgPrimary": "#F2EDE8",
       "colorBgSecondary": "#E8E2DC",
       "scrollMode": "horizontal-snap"
     },
-
-
     "menu": {
-      "logo": "/assets/images/maigret-logo-cat.png",
+      "logo": "/assets/images/logo_maigret_navbar_cat Small.png",
       "links": [
         {
           "text": "Sinopsi",
@@ -52,8 +47,6 @@
         }
       ]
     },
-
-
     "sections": [
       {
         "type": "hero",
@@ -63,8 +56,8 @@
             "mobile": "",
             "desktop": ""
           },
-          "video": "",
-          "heroLogo": "/assets/images/maigret-hero-logo.png",
+          "video": "https://adso-pictures.b-cdn.net/landing-videos/MAIGRET_TRL_FONDO_WEB",
+          "heroLogo": "assets/images/logo_maigret_hero_cat.png",
           "buttons": [
             {
               "text": "Veure Tràiler",
@@ -72,41 +65,39 @@
               "target": null
             }
           ]
-        }
+        },
+        "variant": ""
       },
       {
         "type": "textCentered",
         "data": {
           "id": "intro",
           "title": "Sinopsi",
-          "text": "El comissari Maigret, convocat urgentment al Quai d'Orsay, hi acudeix amb el comandant Janvier. Troben la Mademoiselle Larrieu en estat de xoc. Aquell mateix matí, havia descobert el cos acribillat a trets del Monsieur Berthier-Lagès, un reconegut exambaixador al qual havia servit durant 46 anys. A l'apartament de la víctima, Maigret i Janvier s'apoderen de milers de cartes. El diplomàtic mantenia correspondència romàntica durant cinquanta anys amb la princesa de Vuynes, el marit de la qual, per una estranya coincidència, acaba de morir. En enfrontar-se a membres de ambdues famílies i al sospitós silenci de Mademoiselle Larrieu, Maigret es troba una sorpresa darrere l'altra..."
-        }
-      },
-      {
-        "type": "parallax",
-        "data": {
-          "id": "parallax",
-          "image": "/assets/images/_MAI0490 Large.jpeg"
-        }
+          "text": "Quan un prestigiós ambaixador apareix brutalment assassinat, el comissari Maigret és cridat d'urgència per desentranyar el misteri. Entre milers de cartes secretes i una apassionada correspondència amb una princesa el marit de la qual acaba de morir, Maigret descobreix un entramat de passions ocultes, silencis sospitosos i velles rivalitats familiars. Cada pista obre una porta a noves revelacions... i res és el que sembla.",
+          "backgroundImage": "images/_MAI0490 Large.jpeg"
+        },
+        "variant": "autosplit"
       },
       {
         "type": "video",
         "data": {
           "title": "Tràiler",
           "id": "trailer",
-          "youtubeId": "",
-          "poster": "/assets/images/maigret-trailer-poster.jpg"
-        }
+          "youtubeId": "VwVnLF9r3uk",
+          "poster": "/assets/images/poster_trailer_maigret.png",
+          "backgroundImage": "images/_MAI1279 Large.jpeg"
+        },
+        "variant": "play-on-scroll"
       },
       {
         "type": "details",
         "data": {
           "id": "movie-details",
-          "poster": "/assets/images/Maigret_Poster Esp_LR Large.jpeg",
+          "poster": "/assets/images/Maigret_CAT POSTER CAPAS Large.jpeg",
           "specs": [
             {
               "label": "Títol Original",
-              "value": "Maigret and the Dead Lover"
+              "value": "Maigret et le mort amoureux"
             },
             {
               "label": "Any",
@@ -114,7 +105,7 @@
             },
             {
               "label": "Durada",
-              "value": "Per confirmar"
+              "value": "80 min"
             },
             {
               "label": "Nacionalitat",
@@ -122,7 +113,7 @@
             },
             {
               "label": "Gènere",
-              "value": "Policíac, Thriller"
+              "value": "Thriller policíac"
             },
             {
               "label": "Direcció",
@@ -130,29 +121,32 @@
             },
             {
               "label": "Guió",
-              "value": "Basat en Maigret et les Vieillards de Georges Simenon"
+              "value": "Pascal Bonitzer, basat en la novel·la de Georges Simenon «Maigret y los ancianos»"
             },
             {
               "label": "Repartiment",
-              "value": "Denis Podalydès, Irène Jacob, Olivier Rabourdin, Anne Alvaro, Manuel Guillot, Dominique Reymond, Laurent Poitrenaux, Micha Lescot"
+              "value": "Denis Podalydès, Anne Alvaro, Manuel Guillot, Irène Jacob"
             },
             {
               "label": "V.O.",
               "value": "Francès"
             },
             {
-              "label": "Estrena en sales",
-              "value": "27 de març de 2025"
+              "label": "Format",
+              "value": "DCP"
+            },
+            {
+              "label": "So",
+              "value": "5.1 Dolby Digital"
+            },
+            {
+              "label": "Qualificació",
+              "value": "En tràmit"
             }
-          ]
-        }
-      },
-      {
-        "type": "parallax",
-        "data": {
-          "id": "parallax",
-          "image": "/assets/images/_MAI1279 Large.jpeg"
-        }
+          ],
+          "backgroundImage": "images/_MAI0676 Large.jpeg"
+        },
+        "variant": "stagger-list"
       },
       {
         "type": "gallery",
@@ -161,42 +155,45 @@
           "title": "Galeria",
           "images": [
             {
-              "image": "/assets/images/_MAI0490 Large.jpeg",
-              "title": "Maigret and the Dead Lover - Imatge 1"
+              "image": "assets/images/_MAI0490 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imagen 1"
             },
             {
-              "image": "/assets/images/_MAI0676 Large.jpeg",
-              "title": "Maigret and the Dead Lover - Imatge 2"
+              "image": "assets/images/_MAI0676 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imagen 2"
             },
             {
-              "image": "/assets/images/_MAI1279 Large.jpeg",
-              "title": "Maigret and the Dead Lover - Imatge 3"
+              "image": "assets/images/_MAI1279 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imagen 3"
             },
             {
-              "image": "/assets/images/_MAI1660b Large.jpeg",
-              "title": "Maigret and the Dead Lover - Imatge 4"
+              "image": "assets/images/_MAI1660b Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imagen 4"
             },
             {
-              "image": "/assets/images/_MAI1815 Large.jpeg",
-              "title": "Maigret and the Dead Lover - Imatge 5"
+              "image": "assets/images/_MAI1815 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imagen 5"
             },
             {
-              "image": "/assets/images/_MAI2448 Large.jpeg",
-              "title": "Maigret and the Dead Lover - Imatge 6"
+              "image": "assets/images/_MAI2448 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imagen 6"
             },
             {
-              "image": "/assets/images/_MAI7184 Large.jpeg",
-              "title": "Maigret and the Dead Lover - Imatge 7"
+              "image": "assets/images/_MAI7184 Large.jpeg",
+              "title": "Maigret and the Dead Lover - Imagen 7"
+            },
+            {
+              "image": "assets/images/tmdb_backdrop_1398486_0.jpg",
+              "title": "Maigret and the Dead Lover - Imagen 7"
+            },
+            {
+              "image": "assets/images/tmdb_backdrop_1398486_4.jpg",
+              "title": "Maigret and the Dead Lover - Imagen 7"
             }
-          ]
-        }
-      },
-      {
-        "type": "parallax",
-        "data": {
-          "id": "parallax",
-          "image": "/assets/images/_MAI1815 Large.jpeg"
-        }
+          ],
+          "backgroundImage": "images/_MAI1660b Large.jpeg"
+        },
+        "variant": "1"
       },
       {
         "type": "quotes",
@@ -228,47 +225,13 @@
             },
             {
               "image": null,
-              "text": "Brillant",
-              "authorName": "",
-              "authorMedia": "LES INROCKUPTIBLES",
-              "linkURL": ""
-            },
-            {
-              "image": null,
-              "text": "Un cast excepcional",
-              "authorName": "",
-              "authorMedia": "LES INROCKUPTIBLES",
-              "linkURL": ""
-            },
-            {
-              "image": null,
-              "text": "Un guió atrapant, agut i precís",
-              "authorName": "",
-              "authorMedia": "LIRE",
-              "linkURL": ""
-            },
-            {
-              "image": null,
-              "text": "Meravillosament interpretada",
-              "authorName": "",
-              "authorMedia": "POSITIF",
-              "linkURL": ""
-            },
-            {
-              "image": null,
-              "text": "Una màquina perfectament engrassada",
+              "text": "Una màquina perfectament greixada",
               "authorName": "",
               "authorMedia": "LES FICHES DU CINÉMA",
               "linkURL": ""
             }
-          ]
-        }
-      },
-      {
-        "type": "parallax",
-        "data": {
-          "id": "parallax",
-          "image": "/assets/images/_MAI2448 Large.jpeg"
+          ],
+          "backgroundImage": "images/_MAI1815 Large.jpeg"
         }
       },
       {
@@ -286,11 +249,11 @@
               }
             ]
           },
-          "shareTitle": "Comparteix"
+          "shareTitle": "Comparteix",
+          "backgroundImage": "images/_MAI2448 Large.jpeg"
         }
       }
     ],
-
     "footer": {
       "logoMovie": "",
       "copyright": {
@@ -305,7 +268,6 @@
       "data": {
         "id": "followUs",
         "title": "Segueix-nos!",
-        "background": "/assets/images/share-background.jpg",
         "twitter": "https://twitter.com/Adso_Films",
         "instagram": "https://www.instagram.com/adso_films/",
         "facebook": "https://www.facebook.com/adsofilms/",

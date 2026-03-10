@@ -35,7 +35,7 @@
                 
                 
                 {
-                    "text": "Trailer",
+                    "text": "Tráiler",
                     "url": "#trailer"
                 },
 
@@ -96,7 +96,7 @@
                 "data": {
                     "id": "intro",
                     "title": "Sinopsis",
-                    "text": "El comisario Maigret, convocado urgentemente al Quai d'Orsay, acude allí con el comandante Janvier. Encuentran a Mademoiselle Larrieu en estado de shock. Esa misma mañana, descubrió el cuerpo acribillado a balazos de Monsieur Berthier-Lagès, un renombrado exembajador, a quien había servido durante 46 años. En el apartamento de la víctima, Maigret y Janvier se hacen con miles de cartas. El diplomático mantenía correspondencia romántica durante cincuenta años con la princesa de Vuynes, cuyo esposo, por una extraña coincidencia, acaba de fallecer. Al enfrentarse a miembros de ambas familias y al sospechoso silencio de Mademoiselle Larrieu, Maigret se encuentra con una sorpresa tras otra.",
+                    "text": "Cuando un prestigioso embajador aparece brutalmente asesinado, el comisario Maigret es llamado de urgencia para desentrañar el misterio. Entre miles de cartas secretas y una apasionada correspondencia con una princesa cuyo marido acaba de morir, Maigret descubre un entramado de pasiones ocultas, silencios sospechosos y viejas rivalidades familiares. Cada pista abre una puerta a nuevas revelaciones… y nada es lo que parece.",
                     "backgroundImage": "images/_MAI0490 Large.jpeg"
                 }
             },
@@ -105,7 +105,7 @@
                 "type": "video",
                 "variant": "play-on-scroll",
                 "data": {
-                    "title": "Trailer",
+                    "title": "Tráiler",
                     "id": "trailer",
                     "youtubeId": "VwVnLF9r3uk",
                     "poster": "/assets/images/poster_trailer_maigret.png",

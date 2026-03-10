@@ -9,21 +9,8 @@ body.horizontal-scroll-active {
   overflow-y: auto; // Allow scroll for ScrollTrigger to detect
   width: 100vw;
   height: 100vh;
-  // Reservar espacio de scrollbar para que el viewport no cambie al cargar el video (las flechas no se desplazan)
-  scrollbar-gutter: stable;
-
-  // Background track for horizontal scrollbar at bottom
-  &::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.15);
-    z-index: 9999;
-    pointer-events: none;
-  }
+  // No reservar gutter para evitar que se vea barra/espacio de scroll
+  scrollbar-gutter: auto;
   
   // Hide vertical scrollbar visually while keeping scroll functionality
   scrollbar-width: none; /* Firefox */
@@ -40,7 +27,7 @@ html.horizontal-scroll-active {
   overflow-y: auto; // Allow scroll for ScrollTrigger to detect
   width: 100vw;
   height: 100vh;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: auto;
 
   // Hide scrollbar visually
   scrollbar-width: none;
@@ -53,19 +40,10 @@ html.horizontal-scroll-active {
 
 // Horizontal scrollbar indicator
 .horizontal-scroll-indicator {
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  height: 8px !important;
-  background: rgba(23, 97, 127, 0.8) !important;
-  z-index: 10000 !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
   pointer-events: none !important;
-  transition: width 0.1s ease, left 0.1s ease !important;
-  border-radius: 4px 4px 0 0 !important;
-  min-width: 50px !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
 }
 
 // Capa que contiene la flecha: primera en el body, siempre encima del hero/video y del resto
@@ -246,6 +224,14 @@ body.horizontal-scroll-active {
     // Allow internal scrolling if content overflows
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
   }
 
   // Section background: imagen en CSS; overlay por blend-mode (sin capa extra); contenido encima
@@ -270,6 +256,19 @@ body.horizontal-scroll-active {
         mix-blend-mode: multiply;
         pointer-events: none;
       }
+    }
+
+    // Tráiler: ocultar .section-bg (imagen + overlay) para que no se vea esa capa
+    &.section-screen--video .section-bg,
+    .section-screen:has(#trailer) .section-bg {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    &.section-screen--video .section-screen__content,
+    .section-screen:has(#trailer) .section-screen__content {
+      background-color: var(--color-bg-primary);
     }
 
     .section-screen__content {

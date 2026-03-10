@@ -408,7 +408,13 @@ function initGalleryObserver(element) {
     
     // Keyboard arrow navigation
     const handleKeydown = (e) => {
-        // Only handle if the gallery section is in view or focused
+        // Only handle arrows when focus is inside gallery controls/content.
+        // This keeps global section navigation with arrows available by default.
+        const activeElement = document.activeElement;
+        if (!activeElement || !element.contains(activeElement)) {
+            return;
+        }
+
         if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
             e.preventDefault();
             val--;

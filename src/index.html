@@ -392,7 +392,7 @@
         ##}
 
         {% for section in data.sections %}
-            <div class="section-screen{% if section.type === 'textCentered' and section.data.id === 'intro' %} section-screen--intro{% endif %}" {% if section.data.backgroundImage %}style="--section-bg-image: url('{{ data.basePath }}assets/{{ section.data.backgroundImage }}')"{% endif %}>
+            <div class="section-screen{% if section.type === 'textCentered' and section.data.id === 'intro' %} section-screen--intro{% endif %}{% if section.type === 'video' %} section-screen--video{% endif %}" {% if section.data.backgroundImage %}style="--section-bg-image: url('{{ data.basePath }}assets/{{ section.data.backgroundImage }}')"{% endif %}>
             {% if section.data.backgroundImage %}
                 <div class="section-bg"></div>
             {% endif %}

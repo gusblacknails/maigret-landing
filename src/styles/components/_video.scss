@@ -6,9 +6,9 @@
 .c-video {
   padding: var(--space-40) 0;
 
-  background-color: var(--color-bg-secondary);
-  border-top: 1px solid rgba(var(--color-black), 0.2);
-  border-bottom: 1px solid rgba(var(--color-black), 0.2);
+  background-color: var(--color-bg-primary);
+  border-top: none;
+  border-bottom: none;
 
   .u-container {
     align-items: center;
